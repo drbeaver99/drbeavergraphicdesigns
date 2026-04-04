@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dr Beaver Graphic Designs</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* NAV */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #a855f7;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(10,10,40,0.85), rgba(40,0,80,0.85)),
+               url('https://images.unsplash.com/photo-1559028012-481c04fa702d');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero img {
+    width: 120px;
+    margin-bottom: 15px;
+    animation: fadeIn 4s ease;
+}
+
+.hero h1 {
+    font-size: 50px;
+    animation: slideUp 3s ease;
+}
+
+.hero p {
+    animation: fadeIn 4s ease;
+}
+
+/* BUTTON */
+.btn {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #6a0dad, #a855f7);
+    color: white;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+/* SECTIONS */
+section {
+    padding: 80px 20px;
+    text-align: center;
+    background: #0f172a;
+}
+
+/* FORM */
+form input, form select, form textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideUp {
+    from {transform: translateY(50px); opacity:0;}
+    to {transform: translateY(0); opacity:1;}
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    /* Navigation */
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px;
+    }
+
+    /* Hero section */
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    /* Buttons */
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Services grid */
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Form */
+    form {
+
+        width: 100%;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="service.html">Services</a>
+    <a href="order.html">Order</a>
+    <a href="contact.html">Contact</a>
+</nav>
+<!-- HERO -->
+<div class="hero" id="home">
+    <div>
+        <!-- ADD YOUR LOGO IMAGE HERE -->
+        <img src="33092934-ce15-4693-9722-5c513f7d7526.png""width="800" hieght="122" alt="Dr Beaver Logo">
+
+        <h1>YOUR BRAND,<br>OUR CREATIVITY</h1>
+        <p>We design bold, modern visuals that make your business stand out.</p>
+
+        <a href="order.html"><button class="btn">Get Started</button></a>
+        <a href="https://wa.me/27719194627" target="_blank">
+            <button class="btn">WhatsApp Us</button>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

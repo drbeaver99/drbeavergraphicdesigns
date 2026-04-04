@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Start Your Project</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e1b4b, #3b2f80, #6d28d9);
+    color: white;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+/* Inputs */
+.form-group {
+    display: flex;
+
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+input, select, textarea {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+/* Fix dropdown visibility */
+select option {
+    background: #1e1b4b;
+    color: white;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    min-height: 100px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #ccc;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(168,85,247,0.6);
+}
+
+.navbar {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+}
+
+.navbar a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #a855f7;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="service.html">Services</a>
+    <a href="order.html">Order</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+
+<div class="container">
+    <h1>Start Your Project</h1>
+    <p>Tell us what you need and we’ll bring your ideas to life</p>
+
+    <div class="form-group">
+        <input type="text" placeholder="Full Name">
+        <input type="email" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+        <select>
+            <option disabled selected>Select Service</option>
+            <option>Logo Design</option>
+            <option>Flyer Design</option>
+            <option>Brand Identity</option>
+            <option>Social Media Graphics</option>
+            <option>Website Design</option>
+        </select>
+
+        <select>
+            <option disabled selected>Select Budget</option>
+            <option>Under $50</option>
+            <option>$50 - $100</option>
+            <option>$100 - $300</option>
+            <option>$300+</option>
+        </select>
+
+    </div>
+
+    <textarea placeholder="Describe your project..."></textarea>
+
+    <input type="date">
+
+    <button>Submit & Chat</button>
+</div>
+
+</body>
+</html>
