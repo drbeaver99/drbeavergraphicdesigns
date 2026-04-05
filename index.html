@@ -1,13 +1,11 @@
-
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Dr Beaver Graphic Designs</title>
-<meta name="viewport>
 
-</head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
     margin: 0;
@@ -52,22 +50,21 @@ nav a {
     max-width: 90%;
 }
 
-/* LOGO */
-.hero-content img {
-    width: 90px;
+/* LOGO FIX */
+.logo {
+    width: 120px;
     margin-bottom: 15px;
 }
 
 /* TEXT */
 .hero-content h1 {
-    font-size: 28px;
+    font-size: 26px;
     color: #c084fc;
-    line-height: 1.3;
 }
 
 .hero-content p {
     font-size: 14px;
-    margin: 15px 0;
+    margin: 10px 0 20px;
 }
 
 /* BUTTONS */
@@ -83,28 +80,15 @@ nav a {
     display: block;
 }
 
-/* SECTIONS */
-section {
-    padding: 50px 15px;
-    text-align: center;
-    background: #0f172a;
-}
-
-/* 📱 MOBILE FIX (IMPORTANT) */
+/* MOBILE */
 @media (max-width: 600px) {
-
     .hero h1 {
-        font-size: 24px;
+        font-size: 22px;
     }
-
-    nav a {
-        display: inline-block;
-        margin: 5px;
-        font-size: 12px;
-    }
-
 }
-    </style>
+</style>
+</head>
+
 <body>
 
 <!-- NAV -->
@@ -114,19 +98,23 @@ section {
     <a href="order.html">Order</a>
     <a href="contact.html">Contact</a>
 </nav>
+
 <!-- HERO -->
-<div class="hero" id="home">
-    <div>
-        <!-- ADD YOUR LOGO IMAGE HERE -->
-        <img src="33092934-ce15-4693-9722-5c513f7d7526.png""width="800" hieght="122" alt="Dr Beaver Logo">
+<div class="hero">
+    <div class="hero-content">
+
+        <img src="33092934-ce15-4693-9722-5c513f7d7526.png" class="logo" alt="Dr Beaver Logo">
 
         <h1>YOUR BRAND,<br>OUR CREATIVITY</h1>
+
         <p>We design bold, modern visuals that make your business stand out.</p>
 
         <a href="order.html"><button class="btn">Get Started</button></a>
+
         <a href="https://wa.me/27719194627" target="_blank">
             <button class="btn">WhatsApp Us</button>
         </a>
+
     </div>
 </div>
 
