@@ -13,47 +13,7 @@ body {
     color: white;
 }
 
-.container {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-}
-
-h1, p {
-    text-align: center;
-}
-
-.form-group {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-input, select, textarea {
-    flex: 1;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    background: rgba(255,255,255,0.1);
-    color: white;
-}
-
-textarea {
-    width: 100%;
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    border-radius: 30px;
-    background: linear-gradient(90deg, #7c3aed, #a855f7);
-    color: white;
-    border: none;
-    margin-top: 20px;
-}
-
+/* NAVBAR */
 .navbar {
     text-align: center;
     padding: 15px;
@@ -63,11 +23,101 @@ button {
     margin: 0 10px;
     color: white;
     text-decoration: none;
+    font-weight: 500;
 }
 
+/* CONTAINER */
+.container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s ease;
+}
+
+/* TEXT */
+h1, p {
+    text-align: center;
+}
+
+/* FORM */
+.form-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+/* INPUTS */
+input, select, textarea {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+textarea {
+    min-height: 120px;
+}
+
+/* FOCUS EFFECT */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #a855f7;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #7c3aed, #a855f7);
+    color: white;
+    border: none;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* FOOT NOTE */
+.note {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+/* MOBILE */
 @media (max-width: 600px) {
     .form-group {
         flex-direction: column;
+    }
+
+    .container {
+        margin: 20px;
+        padding: 20px;
     }
 }
 </style>
@@ -87,56 +137,96 @@ button {
     <p>Tell us what you need and we’ll bring your ideas to life</p>
 
     <div class="form-group">
-        <input type="text" id="name" placeholder="Full Name">
-        <input type="email" id="email" placeholder="Email">
+        <div style="flex:1;">
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="John Doe" required>
+        </div>
+
+        <div style="flex:1;">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="example@email.com" required>
+        </div>
     </div>
 
     <div class="form-group">
-        <select id="service">
-            <option disabled selected>Select Service</option>
-            <option>Logo Design</option>
-            <option>Flyer Design</option>
-            <option>Brand Identity</option>
-            <option>Social Media Graphics</option>
-            <option>Website Design</option>
-        </select>
+        <div style="flex:1;">
+            <label>Select Service</label>
+            <select id="service" required>
+                <option disabled selected value="">Choose a service</option>
+                <option>🎨 Logo Design</option>
+                <option>📄 Flyer Design</option>
+                <option>🏷 Brand Identity</option>
+                <option>📱 Social Media Graphics</option>
+                <option>🌐 Website Design</option>
+            </select>
+        </div>
 
-        <select id="budget">
-            <option disabled selected>Select Budget</option>
-            <option>Under $50</option>
-            <option>$50 - $100</option>
-            <option>$100 - $300</option>
-            <option>$300+</option>
-        </select>
+        <div style="flex:1;">
+            <label>Budget</label>
+            <select id="budget" required>
+                <option disabled selected value="">Select budget</option>
+                <option>Under $50</option>
+                <option>$50 - $100</option>
+                <option>$100 - $300</option>
+                <option>$300+</option>
+            </select>
+        </div>
     </div>
 
-    <textarea id="details" placeholder="Describe your project..."></textarea>
+    <div class="form-group">
+        <div style="width:100%;">
+            <label>Project Details</label>
+            <textarea id="details" placeholder="Describe your project..." required></textarea>
+        </div>
+    </div>
 
-    <input type="date" id="date">
+    <div class="form-group">
+        <div style="width:100%;">
+            <label>Deadline</label>
+            <input type="date" id="date">
+        </div>
+    </div>
 
-    <button onclick="sendToWhatsApp()">Submit & Chat</button>
+    <button onclick="sendToWhatsApp()">Submit & Chat on WhatsApp</button>
+
+    <p class="note">
+        Your information is safe and will only be used to contact you.
+    </p>
 </div>
 
 <script>
 function sendToWhatsApp() {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
     let service = document.getElementById("service").value;
     let budget = document.getElementById("budget").value;
-    let details = document.getElementById("details").value;
+    let details = document.getElementById("details").value.trim();
     let date = document.getElementById("date").value;
 
-    let message = `Hello Dr Beaver,
-Name: ${name}
-Email: ${email}
-Service: ${service}
-Budget: ${budget}
-Details: ${details}
-Deadline: ${date}`;
+    // VALIDATION
+    if (!name || !email || !service || !budget || !details) {
+        alert("Please fill in all required fields.");
+        return;
+    }
+
+    // MESSAGE
+    let message = `Hello Dr Beaver 👋
+
+*New Project Request*
+
+👤 Name: ${name}
+📧 Email: ${email}
+🎨 Service: ${service}
+💰 Budget: ${budget}
+📝 Details: ${details}
+📅 Deadline: ${date || "Not specified"}`;
 
     let url = "https://wa.me/263719194627?text=" + encodeURIComponent(message);
 
-    window.open(url, "_blank");
+    // CONFIRMATION
+    if (confirm("Proceed to WhatsApp to send your project details?")) {
+        window.open(url, "_blank");
+    }
 }
 </script>
 
