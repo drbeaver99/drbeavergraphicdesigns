@@ -179,7 +179,7 @@ button:hover {
 
     <input type="date">
 
-    <button>Submit & Chat</button>
+    <button onclick="sendToWhatsApp()">Submit & Chat</button>
 </div>
 <script>
 function sendToWhatsApp() {
@@ -198,7 +198,7 @@ Budget: ${budget}%0A
 Details: ${details}%0A
 Deadline: ${date}`;
 
-    let url = "https://wa.me/27719194627?text=" + message;
+    let url = "https://wa.me/263719194627?text=" + message;
 
     window.open(url, "_blank");
 }
