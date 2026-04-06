@@ -106,7 +106,29 @@ button:hover {
 .navbar a:hover {
     color: #a855f7;
 }
+@media (max-width: 600px) {
 
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+
+    input, select {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
 
 
 </style>
@@ -159,6 +181,27 @@ button:hover {
 
     <button>Submit & Chat</button>
 </div>
+<script>
+function sendToWhatsApp() {
+    let name = document.querySelector('input[placeholder="Full Name"]').value;
+    let email = document.querySelector('input[placeholder="Email"]').value;
+    let service = document.querySelectorAll("select")[0].value;
+    let budget = document.querySelectorAll("select")[1].value;
+    let details = document.querySelector("textarea").value;
+    let date = document.querySelector('input[type="date"]').value;
 
+    let message = `Hello Dr Beaver,%0A
+Name: ${name}%0A
+Email: ${email}%0A
+Service: ${service}%0A
+Budget: ${budget}%0A
+Details: ${details}%0A
+Deadline: ${date}`;
+
+    let url = "https://wa.me/27719194627?text=" + message;
+
+    window.open(url, "_blank");
+}
+</script>
 </body>
 </html>
