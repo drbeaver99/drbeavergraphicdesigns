@@ -1,8 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Services</title>
 
 <style>
@@ -13,7 +13,7 @@ body {
     color: white;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar {
     padding: 20px;
     text-align: center;
@@ -25,19 +25,22 @@ body {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 .navbar a:hover {
     color: #a855f7;
 }
 
-/* Section */
+/* CONTAINER */
 .container {
     max-width: 1100px;
     margin: 50px auto;
     padding: 20px;
     text-align: center;
+    animation: fadeIn 1s ease-in;
 }
+
 h1 {
     font-size: 40px;
     margin-bottom: 10px;
@@ -48,42 +51,64 @@ h1 {
     margin-bottom: 40px;
 }
 
-/* Grid */
+/* GRID */
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
 }
 
-/* Cards */
+/* CARD LINK RESET */
+.card-link {
+    text-decoration: none;
+    color: white;
+}
+
+/* CARDS */
 .card {
     background: rgba(255,255,255,0.08);
     padding: 25px;
     border-radius: 20px;
-    transition: 0.3s;
+    transition: all 0.4s ease;
     backdrop-filter: blur(10px);
+    position: relative;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
 }
 
-/* Icons */
+/* ICON */
 .icon {
     font-size: 35px;
     margin-bottom: 15px;
+    transition: 0.3s;
 }
 
-/* Titles */
+.card:hover .icon {
+    text-shadow: 0 0 15px #a855f7;
+}
+
+/* TEXT */
 .card h3 {
     margin-bottom: 10px;
 }
 
-/* Text */
 .card p {
     font-size: 14px;
     opacity: 0.8;
+}
+
+/* BADGE */
+.badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #a855f7;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
 }
 
 /* CTA */
@@ -104,6 +129,38 @@ h1 {
 .cta a:hover {
     transform: scale(1.05);
 }
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .navbar a {
+        display: inline-block;
+        margin: 10px;
+    }
+
+    .container {
+        margin: 30px 10px;
+    }
+}
 </style>
 
 </head>
@@ -117,6 +174,7 @@ h1 {
     <a href="order.html">Order</a>
     <a href="contact.html">Contact</a>
 </div>
+
 <!-- CONTENT -->
 <div class="container">
 
@@ -125,71 +183,92 @@ h1 {
 
     <div class="services">
 
-        <div class="card">
-            <div class="icon">🎨</div>
-            <h3>Logo Design</h3>
-            <p>Unique and professional logos that represent your brand identity.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <span class="badge">Popular</span>
+                <div class="icon">🎨</div>
+                <h3>Logo Design</h3>
+                <p>Unique and professional logos that represent your brand identity.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <div class="icon">🧠</div>
-            <h3>Brand Identity</h3>
-            <p>Complete branding including colors, fonts and guidelines.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <div class="icon">🧠</div>
+                <h3>Brand Identity</h3>
+                <p>Complete branding including colors, fonts and guidelines.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <div class="icon">🌐</div>
-            <h3>Website Design</h3>
-            <p>Modern and responsive UI/UX designs for your business.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h3>Website Design</h3>
+                <p>Modern and responsive UI/UX designs for your business.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <div class="icon">📱</div>
-            <h3>Social Media Graphics</h3>
-            <p>Engaging posts, ads and content that attract customers.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Social Media Graphics</h3>
+                <p>Engaging posts, ads and content that attract customers.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <div class="icon">🖨️</div>
-            <h3>Flyers & Posters</h3>
-            <p>Eye-catching designs that boost your marketing.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <div class="icon">🖨️</div>
+                <h3>Flyers & Posters</h3>
+                <p>Eye-catching designs that boost your marketing.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <div class="icon">📦</div>
-            <h3>Packaging Design</h3>
-            <p>Creative packaging that stands out on shelves.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <div class="icon">📦</div>
+                <h3>Packaging Design</h3>
+                <p>Creative packaging that stands out on shelves.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <div class="icon">📊</div>
-            <h3>Infographics</h3>
-            <p>Turn complex information into simple visuals.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>Infographics</h3>
+                <p>Turn complex information into simple visuals.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <div class="icon">🎞️</div>
-            <h3>Motion Graphics</h3>
-            <p>Animated visuals to bring your brand to life.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <div class="icon">🎞️</div>
+                <h3>Motion Graphics</h3>
+                <p>Animated visuals to bring your brand to life.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <div class="icon">🧾</div>
-            <h3>Business Cards</h3>
-            <p>Professional stationery that leaves a strong impression.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <div class="icon">🧾</div>
+                <h3>Business Cards</h3>
+                <p>Professional stationery that leaves a strong impression.</p>
+            </div>
+        </a>
 
-        <div class="card">
-            <div class="icon">📢</div>
-            <h3>Banner & Ads</h3>
-            <p>High-converting ad creatives for online and print.</p>
-        </div>
+        <a href="order.html" class="card-link">
+            <div class="card">
+                <div class="icon">📢</div>
+                <h3>Banner & Ads</h3>
+                <p>High-converting ad creatives for online and print.</p>
+            </div>
+        </a>
 
     </div>
 
     <!-- CTA -->
     <div class="cta">
-        <a href="#">Start Your Project</a>
+        <a href="order.html">Start Your Project</a>
     </div>
 
 </div>
