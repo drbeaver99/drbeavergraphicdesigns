@@ -10,205 +10,211 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* GLOBAL STYLES */
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: #050518;
-    /* Premium Mesh Gradient Background */
-    background-image: 
-        radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-        radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-        radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
-    background-attachment: fixed;
-    color: white;
-    overflow-x: hidden;
+body{
+    font-family:'Inter',sans-serif;
+    background:#050518;
+    background-image:
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    background-attachment:fixed;
+    color:white;
+    overflow-x:hidden;
 }
 
-/* NAV - Consistent with Home/Order */
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(5,5,25,0.7);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 18px 0;
-    text-align: center;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(5,5,25,0.72);
+    backdrop-filter:blur(15px);
+    padding:18px 0;
+    text-align:center;
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 18px;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
-    transition: 0.3s;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 18px;
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    opacity:0.75;
+    transition:0.3s;
 }
 
-nav a:hover {
-    color: #c084fc;
-    opacity: 1;
+nav a:hover{
+    color:#c084fc;
+    opacity:1;
 }
 
 /* CONTAINER */
-.container {
-    max-width: 1100px;
-    margin: 140px auto 60px;
-    padding: 20px;
-    text-align: center;
+.container{
+    max-width:1100px;
+    margin:140px auto 60px;
+    padding:20px;
+    text-align:center;
 }
 
-h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(32px, 7vw, 52px);
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    background: linear-gradient(to bottom, #fff, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 10px;
+h1{
+    font-family:'Syne',sans-serif;
+    font-size:clamp(32px,7vw,52px);
+    background:linear-gradient(to bottom,#fff,#c084fc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:10px;
 }
 
-.subtitle {
-    opacity: 0.6;
-    margin-bottom: 60px;
-    font-size: 18px;
+.subtitle{
+    opacity:0.6;
+    margin-bottom:60px;
+    font-size:18px;
 }
 
-h2 {
-    font-family: 'Syne', sans-serif;
-    text-transform: uppercase;
-    font-size: 22px;
-    letter-spacing: 2px;
-    color: #c084fc;
-    margin-bottom: 30px;
+h2{
+    font-family:'Syne',sans-serif;
+    font-size:22px;
+    color:#c084fc;
+    margin-bottom:30px;
+    letter-spacing:2px;
 }
 
-/* GRID SYSTEM */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 80px;
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-bottom:80px;
 }
 
-/* DESIGN WORK - Refined Hover */
-.work img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+/* FIXED IMAGE STYLE */
+.work img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(255,255,255,0.03);
+    padding:8px;
+    transition:0.35s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
-.work img:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: #c084fc;
-    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
+.work img:hover{
+    transform:translateY(-8px) scale(1.01);
+    border-color:#c084fc;
+    box-shadow:0 20px 40px rgba(168,85,247,0.18);
 }
 
-/* WEBSITE CARDS - Glassmorphism */
-.website-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 30px;
-    border-radius: 24px;
-    text-align: left;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: all 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+/* WEBSITE CARDS */
+.website-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:30px;
+    border-radius:24px;
+    text-align:left;
+    backdrop-filter:blur(18px);
+    transition:0.35s ease;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
 
-.website-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(192, 132, 252, 0.4);
-    background: rgba(255,255,255,0.05);
+.website-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(192,132,252,0.45);
+    background:rgba(255,255,255,0.05);
 }
 
-.website-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 20px;
-    margin-bottom: 10px;
+.website-card h3{
+    font-family:'Syne',sans-serif;
+    font-size:20px;
+    margin-bottom:10px;
 }
 
-.website-card p {
-    font-size: 14px;
-    opacity: 0.6;
-    margin-bottom: 20px;
-    line-height: 1.5;
+.website-card p{
+    font-size:14px;
+    opacity:0.65;
+    line-height:1.6;
+    margin-bottom:20px;
 }
 
-/* PREMIUM BUTTON */
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 12px;
-    background: #a855f7;
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    text-align: center;
+/* BUTTON */
+.btn{
+    display:inline-block;
+    padding:12px 24px;
+    border-radius:12px;
+    background:#a855f7;
+    color:white;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+    transition:0.3s;
+    text-align:center;
 }
 
-.btn:hover {
-    background: #c084fc;
-    box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
-    transform: translateY(-2px);
+.btn:hover{
+    background:#c084fc;
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(168,85,247,0.35);
 }
 
-/* ANIMATIONS */
-.section {
-    opacity: 0;
-    animation: fadeUp 1s ease forwards;
+/* ANIMATION */
+.section{
+    animation:fadeUp 1s ease;
 }
 
-.section:nth-child(1) { animation-delay: 0.2s; }
-.section:nth-child(2) { animation-delay: 0.4s; }
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
 /* FOOTER */
-footer {
-    text-align: center;
-    padding: 60px 20px;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.4;
+footer{
+    text-align:center;
+    padding:60px 20px;
+    font-size:12px;
+    opacity:0.45;
 }
 
 /* MOBILE */
-@media (max-width: 600px) {
-    .container { margin: 120px auto 40px; }
-    .grid { gap: 20px; }
+@media(max-width:600px){
+
+.container{
+    margin:120px auto 40px;
+    padding:15px;
+}
+
+.grid{
+    gap:20px;
+}
+
+nav a{
+    margin:0 8px;
+    font-size:11px;
+}
+
+.subtitle{
+    font-size:15px;
+}
+
 }
 </style>
 </head>
@@ -216,63 +222,76 @@ footer {
 <body>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="service.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="order.html">Order</a>
-    <a href="contact.html">Contact</a>
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="order.html">Order</a>
+<a href="contact.html">Contact</a>
 </nav>
 
 <div class="container">
 
-    <h1>Our Portfolio</h1>
-    <p class="subtitle">Showcasing creative excellence and digital innovation 🚀</p>
+<h1>Our Portfolio</h1>
+<p class="subtitle">Showcasing creative excellence and digital innovation 🚀</p>
 
-    <div class="section">
-        <h2>🎨 Design Projects</h2>
-        <div class="grid work">
-            <img src="1cb0d448-824b-43e5-a5ed-8d05f795d756.png" alt="Graphic Design 1">
-            <img src="0cfc003b-19be-4da4-ba67-54e66756d0d0.png" alt="Graphic Design 2">
-            <img src="3306afce-e17f-400a-98b8-742b51453373.png" alt="Graphic Design 3">
-            <img src="33092934-ce15-4693-9722-5c513f7d7526.png" alt="Graphic Design 4">
-        </div>
-    </div>
+<!-- DESIGN PROJECTS -->
+<div class="section">
 
-    <div class="section">
-        <h2>🌐 Website Projects</h2>
-        <div class="grid">
+<h2>🎨 Design Projects</h2>
 
-            <div class="website-card">
-                <div>
-                    <h3>JrElectradrive</h3>
-                    <p>A high-performance business platform for a modern automotive brand.</p>
-                </div>
-                <a href="https://drbeaver99.github.io/Jrelectradriveauto-/index.html" target="_blank" class="btn">View Live Site</a>
-            </div>
+<div class="grid work">
 
-            <div class="website-card">
-                <div>
-                    <h3>Creative Studio</h3>
-                    <p>Minimalist personal portfolio designed for maximum visual impact.</p>
-                </div>
-                <a href="#" target="_blank" class="btn">View Project</a>
-            </div>
+<img src="1cb0d448-824b-43e5-a5ed-8d05f795d756.png" alt="Design 1">
 
-            <div class="website-card">
-                <div>
-                    <h3>Luxe E-commerce</h3>
-                    <p>Sleek user interface design for a premium online shopping experience.</p>
-                </div>
-                <a href="#" target="_blank" class="btn">View Case Study</a>
-            </div>
+<img src="0cfc003b-19be-4da4-ba67-54e66756d0d0.png" alt="Design 2">
 
-        </div>
-    </div>
+<img src="3306afce-e17f-400a-98b8-742b51453373.png" alt="Design 3">
+
+<img src="33092934-ce15-4693-9722-5c513f7d7526.png" alt="Design 4">
+
+</div>
+
+</div>
+
+<!-- WEBSITE PROJECTS -->
+<div class="section">
+
+<h2>🌐 Website Projects</h2>
+
+<div class="grid">
+
+<div class="website-card">
+<div>
+<h3>JrElectradrive</h3>
+<p>A high-performance business platform for a modern automotive brand.</p>
+</div>
+<a href="https://drbeaver99.github.io/Jrelectradriveauto-/index.html" target="_blank" class="btn">View Live Site</a>
+</div>
+
+<div class="website-card">
+<div>
+<h3>Creative Studio</h3>
+<p>Minimalist personal portfolio designed for maximum visual impact.</p>
+</div>
+<a href="#" class="btn">View Project</a>
+</div>
+
+<div class="website-card">
+<div>
+<h3>Luxe E-commerce</h3>
+<p>Sleek user interface design for a premium online shopping experience.</p>
+</div>
+<a href="#" class="btn">View Case Study</a>
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 <footer>
-    © 2026 Dr Beaver Graphic Designs
+© 2026 Dr Beaver Graphic Designs
 </footer>
 
 </body>
