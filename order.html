@@ -2,218 +2,211 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Start Your Project | Dr Beaver Graphic Designs</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Your Project | Dr Beaver Graphic Designs</title>
 
 <link rel="icon" href="33092934-ce15-4693-9722-5c513f7d7526.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* GLOBAL STYLES */
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background: #050518;
-    /* Premium Mesh Gradient Background */
-    background-image: 
-        radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-        radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-        radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
-    background-attachment: fixed;
-    color: white;
-    overflow-x: hidden;
+body{
+    font-family:'Inter',sans-serif;
+    background:#050518;
+    background-image:
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    background-attachment:fixed;
+    color:white;
+    overflow-x:hidden;
 }
 
 /* NAV */
-nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(5,5,25,0.7);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding: 18px 0;
-    text-align: center;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(5,5,25,0.75);
+    backdrop-filter:blur(15px);
+    padding:18px 0;
+    text-align:center;
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 18px;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
-    transition: 0.3s;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 18px;
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    opacity:0.75;
+    transition:0.3s;
 }
 
-nav a:hover {
-    color: #c084fc;
-    opacity: 1;
+nav a:hover{
+    color:#c084fc;
+    opacity:1;
 }
 
-/* CONTAINER - Glassmorphism Refined */
-.container {
-    max-width: 800px;
-    margin: 140px auto 60px;
-    padding: 45px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+/* CONTAINER */
+.container{
+    max-width:820px;
+    margin:140px auto 60px;
+    padding:45px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:24px;
+    backdrop-filter:blur(20px);
+    box-shadow:0 25px 50px rgba(0,0,0,0.35);
 }
 
-/* TYPOGRAPHY */
-h1 {
-    font-family: 'Syne', sans-serif;
-    text-align: center;
-    font-size: clamp(28px, 5vw, 42px);
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    margin-bottom: 10px;
-    background: linear-gradient(to bottom, #fff, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* TEXT */
+h1{
+    font-family:'Syne',sans-serif;
+    text-align:center;
+    font-size:clamp(28px,5vw,42px);
+    margin-bottom:10px;
+    background:linear-gradient(to bottom,#fff,#c084fc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.subtitle {
-    text-align: center;
-    opacity: 0.6;
-    margin-bottom: 40px;
-    font-size: 16px;
+.subtitle{
+    text-align:center;
+    opacity:0.65;
+    margin-bottom:40px;
 }
 
-/* FORM LAYOUT & STAGGERED REVEAL */
-.form-group {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
+/* FORM */
+.form-group{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+    animation:fadeUp 0.8s ease;
 }
 
-/* Stagger timings for inputs */
-.group-1 { animation-delay: 0.2s; }
-.group-2 { animation-delay: 0.4s; }
-.group-3 { animation-delay: 0.6s; }
-.group-4 { animation-delay: 0.8s; }
-
-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    color: #c084fc;
+label{
+    display:block;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:8px;
+    color:#c084fc;
 }
 
-/* INPUTS - Premium Glow */
-input, select, textarea {
-    width: 100%;
-    padding: 14px 18px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(255,255,255,0.05);
-    color: white;
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    transition: all 0.3s ease;
+input,
+select,
+textarea{
+    width:100%;
+    padding:14px 18px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.05);
+    color:white;
+    font-size:15px;
+    font-family:'Inter',sans-serif;
+    transition:0.3s;
 }
 
-textarea {
-    min-height: 140px;
-    resize: none;
+select option{
+    background:#111126;
+    color:white;
 }
 
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    background: rgba(255,255,255,0.08);
-    border-color: #c084fc;
-    box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
+textarea{
+    min-height:140px;
+    resize:none;
 }
 
-/* BUTTON - High End Shine */
-button {
-    width: 100%;
-    padding: 18px;
-    border-radius: 12px;
-    background: #a855f7;
-    color: white;
-    border: none;
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border-color:#c084fc;
+    background:rgba(255,255,255,0.08);
+    box-shadow:0 0 15px rgba(192,132,252,0.25);
 }
 
-button:hover {
-    transform: translateY(-5px);
-    background: #c084fc;
-    box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
+/* BUTTON */
+button{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:12px;
+    background:#a855f7;
+    color:white;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:0.35s;
+    box-shadow:0 10px 30px rgba(168,85,247,0.35);
 }
 
-/* FOOTER & NOTES */
-.note {
-    text-align: center;
-    font-size: 11px;
-    opacity: 0.4;
-    margin-top: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+button:hover{
+    transform:translateY(-5px);
+    background:#c084fc;
+    box-shadow:0 15px 40px rgba(168,85,247,0.5);
 }
 
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.4;
+.note{
+    text-align:center;
+    font-size:11px;
+    opacity:0.45;
+    margin-top:20px;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
-/* ANIMATIONS */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+footer{
+    text-align:center;
+    padding:40px 20px;
+    font-size:12px;
+    opacity:0.45;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
 /* MOBILE */
-@media (max-width: 600px) {
-    .form-group {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .container {
-        margin: 110px 15px 40px;
-        padding: 30px 20px;
-    }
-    nav a {
-        margin: 0 8px;
-        font-size: 11px;
-    }
+@media(max-width:600px){
+
+.container{
+    margin:110px 15px 40px;
+    padding:30px 20px;
+}
+
+.form-group{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav a{
+    margin:0 8px;
+    font-size:11px;
+}
+
 }
 </style>
 </head>
@@ -221,102 +214,191 @@ footer {
 <body>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="service.html">Services</a>
-    <a href="order.html">Order</a>
-    <a href="contact.html">Contact</a>
-    <a href="portfolio.html">Portfolio</a>
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="order.html">Order</a>
+<a href="contact.html">Contact</a>
+<a href="portfolio.html">Portfolio</a>
 </nav>
 
 <div class="container">
-    <h1>Start Your Project</h1>
-    <p class="subtitle">Tell us what you need and we’ll bring your ideas to life.</p>
 
-    <div class="form-group group-1">
-        <div style="flex:1;">
-            <label>Full Name</label>
-            <input type="text" id="name" placeholder="John Doe" required>
-        </div>
+<h1>Start Your Project</h1>
+<p class="subtitle">Tell us what you need and we’ll bring your ideas to life.</p>
 
-        <div style="flex:1;">
-            <label>Email Address</label>
-            <input type="email" id="email" placeholder="example@email.com" required>
-        </div>
-    </div>
+<!-- NAME + EMAIL -->
+<div class="form-group">
 
-    <div class="form-group group-2">
-        <div style="flex:1;">
-            <label>Select Service</label>
-            <select id="service" required>
-                <option disabled selected value="">Choose a service</option>
-                <option>🎨 Logo Design</option>
-                <option>📄 Flyer Design</option>
-                <option>🏷 Brand Identity</option>
-                <option>📱 Social Media Graphics</option>
-                <option>🌐 Website Design</option>
-            </select>
-        </div>
+<div style="flex:1;">
+<label>Full Name</label>
+<input type="text" id="name" placeholder="John Doe" required>
+</div>
 
-        <div style="flex:1;">
-            <label>Est. Budget</label>
-            <select id="budget" required>
-                <option disabled selected value="">Select budget</option>
-                <option>Under $15</option>
-                <option>$15 - $30</option>
-                <option>$30 - $50</option>
-                <option>$50+</option>
-            </select>
-        </div>
-    </div>
+<div style="flex:1;">
+<label>Email Address</label>
+<input type="email" id="email" placeholder="example@email.com" required>
+</div>
 
-    <div class="form-group group-3">
-        <div style="width:100%;">
-            <label>Project Details</label>
-            <textarea id="details" placeholder="Describe your creative vision..." required></textarea>
-        </div>
-    </div>
+</div>
 
-    <div class="form-group group-4">
-        <div style="width:100%;">
-            <label>Preferred Deadline</label>
-            <input type="date" id="date">
-        </div>
-    </div>
+<!-- SERVICE + BUDGET -->
+<div class="form-group">
 
-    <div class="form-group group-4">
-        <button onclick="sendToWhatsApp()">🚀 Submit & Start Chat</button>
-    </div>
+<div style="flex:1;">
+<label>Select Service</label>
 
-    <p class="note">
-        Directly connected to Dr Beaver Graphic Designs via WhatsApp.
-    </p>
+<select id="service" onchange="updateBudget()" required>
+<option disabled selected value="">Choose a service</option>
+
+<option value="logo">🎨 Logo Design</option>
+<option value="flyer">📄 Flyer Design</option>
+<option value="brand">🏷 Brand Identity</option>
+<option value="socialgraphics">📱 Social Media Graphics</option>
+<option value="socialmanagement">📈 Social Media Management</option>
+<option value="web">🌐 Website Design</option>
+<option value="combo">🔥 Combo Package</option>
+
+</select>
+</div>
+
+<div style="flex:1;">
+<label>Select Package / Budget</label>
+
+<select id="budget" required>
+<option disabled selected value="">Select budget</option>
+</select>
+
+</div>
+
+</div>
+
+<!-- DETAILS -->
+<div class="form-group">
+
+<div style="width:100%;">
+<label>Project Details</label>
+<textarea id="details" placeholder="Describe your creative vision..." required></textarea>
+</div>
+
+</div>
+
+<!-- DATE -->
+<div class="form-group">
+
+<div style="width:100%;">
+<label>Preferred Deadline</label>
+<input type="date" id="date">
+</div>
+
+</div>
+
+<!-- BUTTON -->
+<div class="form-group">
+<button onclick="sendToWhatsApp()">🚀 SUBMIT & START CHAT</button>
+</div>
+
+<p class="note">
+Directly connected to Dr Beaver Graphic Designs via WhatsApp
+</p>
+
 </div>
 
 <footer>
-    © 2026 Dr Beaver Graphic Designs
+© 2026 Dr Beaver Graphic Designs
 </footer>
 
 <script>
-function sendToWhatsApp() {
-    let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let service = document.getElementById("service").value;
-    let budget = document.getElementById("budget").value;
-    let details = document.getElementById("details").value.trim();
-    let date = document.getElementById("date").value;
+function updateBudget(){
 
-    if (!name || !email || !service || !budget || !details) {
-        alert("Please fill in all required fields to proceed.");
-        return;
-    }
+let service=document.getElementById("service").value;
+let budget=document.getElementById("budget");
 
-    let message = `Hello Dr Beaver 👋\n\n*NEW PROJECT REQUEST*\n\n👤 Name: ${name}\n📧 Email: ${email}\n🎨 Service: ${service}\n💰 Budget: ${budget}\n📝 Details: ${details}\n📅 Deadline: ${date || "Not specified"}`;
+budget.innerHTML='<option disabled selected value="">Select package</option>';
 
-    let url = "https://wa.me/263719194627?text=" + encodeURIComponent(message);
+if(service==="web"){
+budget.innerHTML+=`
+<option>$80 Starter Website</option>
+<option>$120 Business Website</option>
+<option>$150 Premium Website</option>
+`;
+}
 
-    if (confirm("Open WhatsApp to send your project details?")) {
-        window.open(url, "_blank");
-    }
+else if(service==="socialmanagement"){
+budget.innerHTML+=`
+<option>$50 Basic Management</option>
+<option>$80 Growth Package</option>
+<option>$100 Premium Management</option>
+`;
+}
+
+else if(service==="socialgraphics"){
+budget.innerHTML+=`
+<option>$15 Starter Pack (2 posts/week)</option>
+<option>$25 Business Pack (5 posts/week)</option>
+<option>$50 One Month Premium</option>
+`;
+}
+
+else if(service==="logo"){
+budget.innerHTML+=`
+<option>$25 Standard Logo</option>
+<option>$40 Premium Logo</option>
+`;
+}
+
+else if(service==="flyer"){
+budget.innerHTML+=`
+<option>$10 Flyer Design</option>
+<option>$20 Premium Poster</option>
+`;
+}
+
+else if(service==="brand"){
+budget.innerHTML+=`
+<option>$50 Brand Kit</option>
+<option>$80 Premium Brand Identity</option>
+`;
+}
+
+else if(service==="combo"){
+budget.innerHTML+=`
+<option>🎨 Logo + 📄 Poster = $30 (Save $5)</option>
+<option>🎨 Logo + 🌐 Website = $95 (Save $10)</option>
+<option>📱 Graphics + Flyer = $30 (Save $10)</option>
+<option>🔥 Full Starter Brand Pack = $120</option>
+`;
+}
+
+}
+
+function sendToWhatsApp(){
+
+let name=document.getElementById("name").value.trim();
+let email=document.getElementById("email").value.trim();
+let service=document.getElementById("service").value;
+let budget=document.getElementById("budget").value;
+let details=document.getElementById("details").value.trim();
+let date=document.getElementById("date").value;
+
+if(!name || !email || !service || !budget || !details){
+alert("Please fill in all required fields.");
+return;
+}
+
+let message=`Hello Dr Beaver 👋
+
+*NEW PROJECT REQUEST*
+
+👤 Name: ${name}
+📧 Email: ${email}
+🎯 Service: ${service}
+💰 Package: ${budget}
+📝 Details: ${details}
+📅 Deadline: ${date || "Not specified"}`;
+
+let url="https://wa.me/263719194627?text="+encodeURIComponent(message);
+
+window.open(url,"_blank");
 }
 </script>
 
