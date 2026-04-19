@@ -7,12 +7,27 @@
 
 <link rel="icon" href="33092934-ce15-4693-9722-5c513f7d7526.png">
 
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-body {
+/* GLOBAL STYLES */
+*{
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
     background: #050518;
+    /* Premium Mesh Gradient Background */
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    background-attachment: fixed;
     color: white;
+    overflow-x: hidden;
 }
 
 /* NAV */
@@ -20,142 +35,161 @@ nav {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(5,5,25,0.9);
-    backdrop-filter: blur(10px);
-    padding: 12px 0;
+    background: rgba(5,5,25,0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 18px 0;
     text-align: center;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 nav a {
     color: white;
-    margin: 0 12px;
     text-decoration: none;
-    font-size: 14px;
-    opacity: 0.8;
+    margin: 0 18px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
     transition: 0.3s;
 }
 
 nav a:hover {
+    color: #c084fc;
     opacity: 1;
-    color: #c084fc;
 }
 
-/* CONTAINER */
+/* CONTAINER - Glassmorphism Refined */
 .container {
-    max-width: 900px;
-    margin: 120px auto 60px;
-    padding: 35px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    backdrop-filter: blur(14px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    animation: fadeIn 1s ease;
+    max-width: 800px;
+    margin: 140px auto 60px;
+    padding: 45px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
 
-/* TEXT */
+/* TYPOGRAPHY */
 h1 {
+    font-family: 'Syne', sans-serif;
     text-align: center;
-    color: #c084fc;
+    font-size: clamp(28px, 5vw, 42px);
+    text-transform: uppercase;
+    letter-spacing: -1px;
     margin-bottom: 10px;
+    background: linear-gradient(to bottom, #fff, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-p {
+.subtitle {
     text-align: center;
-    opacity: 0.8;
-    margin-bottom: 25px;
+    opacity: 0.6;
+    margin-bottom: 40px;
+    font-size: 16px;
 }
 
-/* FORM */
+/* FORM LAYOUT & STAGGERED REVEAL */
 .form-group {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
 }
+
+/* Stagger timings for inputs */
+.group-1 { animation-delay: 0.2s; }
+.group-2 { animation-delay: 0.4s; }
+.group-3 { animation-delay: 0.6s; }
+.group-4 { animation-delay: 0.8s; }
 
 label {
     display: block;
-    font-size: 14px;
-    opacity: 0.8;
-    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: #c084fc;
 }
 
-/* INPUTS */
+/* INPUTS - Premium Glow */
 input, select, textarea {
-    flex: 1;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    background: rgba(255,255,255,0.08);
-    color: white;
     width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
 }
 
 textarea {
-    min-height: 120px;
+    min-height: 140px;
+    resize: none;
 }
 
-input::placeholder,
-textarea::placeholder {
-    color: rgba(255,255,255,0.6);
-}
-
-/* FOCUS */
 input:focus, select:focus, textarea:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #a855f7;
+    background: rgba(255,255,255,0.08);
+    border-color: #c084fc;
+    box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
 }
 
-/* BUTTON */
+/* BUTTON - High End Shine */
 button {
     width: 100%;
-    padding: 15px;
-    border-radius: 30px;
-    background: linear-gradient(45deg, #6a0dad, #a855f7);
+    padding: 18px;
+    border-radius: 12px;
+    background: #a855f7;
     color: white;
     border: none;
-    margin-top: 20px;
-    font-size: 16px;
-    transition: 0.3s;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
 }
 
 button:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-    cursor: pointer;
+    transform: translateY(-5px);
+    background: #c084fc;
+    box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
 }
 
-/* NOTE */
+/* FOOTER & NOTES */
 .note {
     text-align: center;
-    font-size: 12px;
-    opacity: 0.6;
-    margin-top: 10px;
+    font-size: 11px;
+    opacity: 0.4;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* FOOTER */
 footer {
     text-align: center;
-    padding: 20px;
-    font-size: 13px;
-    opacity: 0.6;
+    padding: 40px 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.4;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-    .form-group {
-        flex-direction: column;
-    }
-
-    .container {
-        margin: 100px 15px 40px;
-        padding: 25px;
-    }
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
+/* ANIMATIONS */
+@keyframes fadeUp {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -165,12 +199,27 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .form-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .container {
+        margin: 110px 15px 40px;
+        padding: 30px 20px;
+    }
+    nav a {
+        margin: 0 8px;
+        font-size: 11px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
     <a href="index.html">Home</a>
     <a href="service.html">Services</a>
@@ -181,21 +230,21 @@ footer {
 
 <div class="container">
     <h1>Start Your Project</h1>
-    <p>Tell us what you need and we’ll bring your ideas to life</p>
+    <p class="subtitle">Tell us what you need and we’ll bring your ideas to life.</p>
 
-    <div class="form-group">
+    <div class="form-group group-1">
         <div style="flex:1;">
             <label>Full Name</label>
             <input type="text" id="name" placeholder="John Doe" required>
         </div>
 
         <div style="flex:1;">
-            <label>Email</label>
+            <label>Email Address</label>
             <input type="email" id="email" placeholder="example@email.com" required>
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group group-2">
         <div style="flex:1;">
             <label>Select Service</label>
             <select id="service" required>
@@ -209,7 +258,7 @@ footer {
         </div>
 
         <div style="flex:1;">
-            <label>Budget</label>
+            <label>Est. Budget</label>
             <select id="budget" required>
                 <option disabled selected value="">Select budget</option>
                 <option>Under $15</option>
@@ -220,24 +269,26 @@ footer {
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group group-3">
         <div style="width:100%;">
             <label>Project Details</label>
-            <textarea id="details" placeholder="Describe your project..." required></textarea>
+            <textarea id="details" placeholder="Describe your creative vision..." required></textarea>
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group group-4">
         <div style="width:100%;">
-            <label>Deadline</label>
+            <label>Preferred Deadline</label>
             <input type="date" id="date">
         </div>
     </div>
 
-    <button onclick="sendToWhatsApp()">🚀 Submit & Chat on WhatsApp</button>
+    <div class="form-group group-4">
+        <button onclick="sendToWhatsApp()">🚀 Submit & Start Chat</button>
+    </div>
 
     <p class="note">
-        Your information is safe and will only be used to contact you.
+        Directly connected to Dr Beaver Graphic Designs via WhatsApp.
     </p>
 </div>
 
@@ -255,24 +306,15 @@ function sendToWhatsApp() {
     let date = document.getElementById("date").value;
 
     if (!name || !email || !service || !budget || !details) {
-        alert("Please fill in all required fields.");
+        alert("Please fill in all required fields to proceed.");
         return;
     }
 
-    let message = `Hello Dr Beaver 👋
-
-*New Project Request*
-
-👤 Name: ${name}
-📧 Email: ${email}
-🎨 Service: ${service}
-💰 Budget: ${budget}
-📝 Details: ${details}
-📅 Deadline: ${date || "Not specified"}`;
+    let message = `Hello Dr Beaver 👋\n\n*NEW PROJECT REQUEST*\n\n👤 Name: ${name}\n📧 Email: ${email}\n🎨 Service: ${service}\n💰 Budget: ${budget}\n📝 Details: ${details}\n📅 Deadline: ${date || "Not specified"}`;
 
     let url = "https://wa.me/263719194627?text=" + encodeURIComponent(message);
 
-    if (confirm("Proceed to WhatsApp to send your project details?")) {
+    if (confirm("Open WhatsApp to send your project details?")) {
         window.open(url, "_blank");
     }
 }
