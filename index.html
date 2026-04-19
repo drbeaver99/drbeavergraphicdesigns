@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr Beaver Graphic Designs</title>
+<title>Dr Beaver Graphic Designs | Premium Visual Solutions</title>
 
 <link rel="icon" href="33092934-ce15-4693-9722-5c513f7d7526.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -19,9 +21,10 @@ html{
 }
 
 body{
-    font-family:'Segoe UI',sans-serif;
-    background:#050518;
-    color:white;
+    font-family: 'Inter', sans-serif; /* Premium body font */
+    background: #050518;
+    color: white;
+    overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -29,19 +32,24 @@ nav{
     position:fixed;
     top:0;
     width:100%;
-    background:rgba(5,5,25,0.88);
-    backdrop-filter:blur(10px);
-    padding:14px 0;
+    background:rgba(5,5,25,0.7);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding:18px 0;
     text-align:center;
     z-index:1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin:0 14px;
-    font-size:14px;
-    opacity:0.85;
+    margin:0 18px;
+    font-size:13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity:0.7;
     transition:0.3s;
 }
 
@@ -50,14 +58,16 @@ nav a:hover{
     opacity:1;
 }
 
-/* HERO */
+/* HERO WITH MESH GRADIENT */
 .hero{
     height:100vh;
-    background:
-    linear-gradient(rgba(10,10,40,0.88), rgba(40,0,80,0.88)),
-    url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
-    background-size:cover;
-    background-position:center;
+    background-color: #050518;
+    /* Premium Mesh Gradient Background */
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    background-attachment: fixed;
     position:relative;
     overflow:hidden;
 
@@ -68,151 +78,139 @@ nav a:hover{
     padding:20px;
 }
 
-/* FLOATING LIGHT EFFECTS */
+/* REFINED FLOATING GLOWS */
 .hero::before,
 .hero::after{
     content:"";
     position:absolute;
     border-radius:50%;
-    filter:blur(45px);
-    animation:floatGlow 7s ease-in-out infinite;
+    filter:blur(60px);
+    animation:floatGlow 8s ease-in-out infinite;
+    z-index: 1;
 }
 
 .hero::before{
-    width:180px;
-    height:180px;
-    background:rgba(168,85,247,0.35);
-    top:12%;
-    left:8%;
+    width:250px;
+    height:250px;
+    background:rgba(168,85,247,0.2);
+    top:10%;
+    left:5%;
 }
 
 .hero::after{
-    width:220px;
-    height:220px;
-    background:rgba(99,102,241,0.28);
-    bottom:10%;
-    right:10%;
-    animation-delay:2s;
+    width:300px;
+    height:300px;
+    background:rgba(99,102,241,0.15);
+    bottom:5%;
+    right:5%;
+    animation-delay:3s;
 }
 
-/* CONTENT */
+/* CONTENT STAGGERED REVEAL */
 .hero-content{
-    max-width:520px;
+    max-width:650px;
     position:relative;
     z-index:5;
-    animation:fadeUp 1.2s ease;
 }
+
+.hero-content > * {
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* Staggered entry timing */
+.logo { animation-delay: 0.2s; }
+h1 { animation-delay: 0.4s; }
+p { animation-delay: 0.6s; }
+.btn-primary { animation-delay: 0.8s; }
+.btn-outline { animation-delay: 1s; }
 
 /* LOGO */
 .logo{
-    width:110px;
-    margin-bottom:15px;
-    animation:floatLogo 3s ease-in-out infinite;
+    width:100px;
+    margin-bottom:25px;
+    animation: floatLogo 4s ease-in-out infinite, fadeUp 0.8s ease forwards 0.2s;
 }
 
 /* TEXT */
-.hero-content h1{
-    font-size:34px;
-    color:#c084fc;
-    line-height:1.3;
-    text-shadow:0 0 18px rgba(192,132,252,0.5);
+h1 {
+    font-family: 'Syne', sans-serif; /* High-end Heading Font */
+    font-size: clamp(32px, 8vw, 56px); /* Responsive size */
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 0.95;
+    margin-bottom: 20px;
+    background: linear-gradient(to bottom, #fff, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-content p{
-    font-size:15px;
-    margin:15px 0 28px;
-    opacity:0.92;
-    line-height:1.6;
+    font-size: 17px;
+    max-width: 500px;
+    margin: 0 auto 35px;
+    opacity: 0.8;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
 }
 
 /* BUTTONS */
 .btn{
-    width:90%;
-    max-width:310px;
-    padding:14px;
-    margin:12px auto;
-    border-radius:50px;
-    text-decoration:none;
-    display:block;
-    color:white;
-    font-size:15px;
-    font-weight:600;
-    letter-spacing:0.4px;
-    background:linear-gradient(135deg,#7e22ce,#a855f7);
-    box-shadow:0 10px 25px rgba(168,85,247,0.35);
-    transition:0.35s ease;
-    position:relative;
-    overflow:hidden;
+    width: 100%;
+    max-width: 280px;
+    padding: 16px;
+    margin: 10px auto;
+    border-radius: 12px; /* Slightly more modern than full round */
+    text-decoration: none;
+    display: block;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Shine effect */
-.btn::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-120%;
-    width:60%;
-    height:100%;
-    background:rgba(255,255,255,0.18);
-    transform:skewX(-25deg);
-    transition:0.5s;
+.btn-primary {
+    background: #a855f7;
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
 }
 
-.btn:hover::before{
-    left:130%;
-}
-
-.btn:hover{
-    transform:translateY(-4px) scale(1.02);
-    box-shadow:0 14px 30px rgba(168,85,247,0.45);
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
+    background: #c084fc;
 }
 
 .btn-outline{
-    background:transparent;
-    border:1px solid rgba(255,255,255,0.35);
-    box-shadow:none;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
 }
 
 .btn-outline:hover{
-    background:rgba(255,255,255,0.05);
-}
-
-/* SERVICES */
-.services{
-    background:#0b0b2a;
-    padding:70px 20px;
-    text-align:center;
-}
-
-.services h2{
-    color:#c084fc;
-    font-size:28px;
-    margin-bottom:10px;
-}
-
-.services p{
-    opacity:0.8;
-}
-
-.service-list{
-    margin-top:30px;
-    line-height:2.2;
-    font-size:16px;
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-5px);
 }
 
 /* FOOTER */
 footer{
     text-align:center;
-    padding:22px;
-    font-size:13px;
-    opacity:0.6;
+    padding:40px 20px;
+    font-size:12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity:0.4;
 }
 
 /* ANIMATIONS */
 @keyframes fadeUp{
     from{
         opacity:0;
-        transform:translateY(25px);
+        transform:translateY(30px);
     }
     to{
         opacity:1;
@@ -221,87 +219,62 @@ footer{
 }
 
 @keyframes floatLogo{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-10px);
-    }
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-15px); }
 }
 
 @keyframes floatGlow{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-25px);
-    }
+    0%,100%{ transform:translate(0, 0); }
+    50%{ transform:translate(-20px, 20px); }
 }
 
-/* MOBILE */
+/* MOBILE ADJUSTMENTS */
 @media(max-width:600px){
-
-nav a{
-    margin:0 8px;
-    font-size:13px;
-}
-
-.hero-content h1{
-    font-size:27px;
-}
-
-.hero-content p{
-    font-size:14px;
-}
-
-.services h2{
-    font-size:24px;
-}
-
+    nav a{
+        margin:0 10px;
+        font-size:11px;
+    }
+    .hero-content p{
+        font-size:15px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
-<a href="index.html">Home</a>
-<a href="service.html">Services</a>
-<a href="order.html">Order</a>
-<a href="contact.html">Contact</a>
-<a href="portfolio.html">Portfolio</a>
+    <a href="index.html">Home</a>
+    <a href="service.html">Services</a>
+    <a href="order.html">Order</a>
+    <a href="contact.html">Contact</a>
+    <a href="portfolio.html">Portfolio</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-<div class="hero-content">
+    <div class="hero-content">
 
-<img src="33092934-ce15-4693-9722-5c513f7d7526.png" class="logo" alt="Logo">
+        <img src="33092934-ce15-4693-9722-5c513f7d7526.png" class="logo" alt="Dr Beaver Logo">
 
-<h1>YOUR BRAND,<br>OUR CREATIVITY</h1>
+        <h1>YOUR BRAND,<br>OUR CREATIVITY</h1>
 
-<p>
-We design bold, modern visuals that make your business stand out
-and attract more customers.
-</p>
+        <p>
+            Elevating businesses through bold, modern design and high-end visual storytelling.
+        </p>
 
-<a href="order.html" class="btn">🚀 Start a Project</a>
+        <a href="order.html" class="btn btn-primary">🚀 Start a Project</a>
 
-<a href="https://wa.me/263719194627?text=Hi%20Dr%20Beaver,%20I%20need%20a%20design"
-target="_blank"
-class="btn btn-outline">
-💬 Chat on WhatsApp
-</a>
+        <a href="https://wa.me/263719194627?text=Hi%20Dr%20Beaver,%20I%20need%20a%20design"
+        target="_blank"
+        class="btn btn-outline">
+            💬 Chat on WhatsApp
+        </a>
 
-</div>
+    </div>
 </section>
 
-
-
-<!-- FOOTER -->
 <footer>
-© 2026 Dr Beaver Graphic Designs
+    © 2026 Dr Beaver Graphic Designs
 </footer>
 
 </body>
