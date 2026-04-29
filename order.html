@@ -306,101 +306,82 @@ Directly connected to Dr Beaver Graphic Designs via WhatsApp
 <footer>
 © 2026 Dr Beaver Graphic Designs
 </footer>
+<script type="module">
 
-<script>
-function updateBudget(){
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import {
+getFirestore,
+collection,
+addDoc
+} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
 
-let service=document.getElementById("service").value;
-let budget=document.getElementById("budget");
+const firebaseConfig = {
+apiKey: "AIzaSyBIjF4ZAYgQiEdgA-EID7nD3L1OTrymiZM",
+authDomain: "dr-beaver-graphic-designs.firebaseapp.com",
+projectId: "dr-beaver-graphic-designs",
+storageBucket: "dr-beaver-graphic-designs.firebasestorage.app",
+messagingSenderId: "129079631486",
+appId: "1:129079631486:web:f42119fbd75cfdd9b1022f",
+measurementId: "G-TPE1HQT5XT"
+};
 
-budget.innerHTML='<option disabled selected value="">Select package</option>';
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-if(service==="web"){
-budget.innerHTML+=`
-<option>$80 Starter Website</option>
-<option>$120 Business Website</option>
-<option>$150 Premium Website</option>
-`;
-}
+window.sendToWhatsApp = async function(){
 
-else if(service==="socialmanagement"){
-budget.innerHTML+=`
-<option>$50 Basic Management</option>
-<option>$80 Growth Package</option>
-<option>$100 Premium Management</option>
-`;
-}
-
-else if(service==="socialgraphics"){
-budget.innerHTML+=`
-<option>$15 Starter Pack (2 posts/week)</option>
-<option>$25 Business Pack (5 posts/week)</option>
-<option>$50 One Month Premium</option>
-`;
-}
-
-else if(service==="logo"){
-budget.innerHTML+=`
-<option>$25 Standard Logo</option>
-<option>$40 Premium Logo</option>
-`;
-}
-
-else if(service==="flyer"){
-budget.innerHTML+=`
-<option>$10 Flyer Design</option>
-<option>$20 Premium Poster</option>
-`;
-}
-
-else if(service==="brand"){
-budget.innerHTML+=`
-<option>$50 Brand Kit</option>
-<option>$80 Premium Brand Identity</option>
-`;
-}
-
-else if(service==="combo"){
-budget.innerHTML+=`
-<option>🎨 Logo + 📄 Poster = $30 (Save $5)</option>
-<option>🎨 Logo + 🌐 Website = $95 (Save $10)</option>
-<option>📱 Graphics + Flyer = $30 (Save $10)</option>
-<option>🔥 Full Starter Brand Pack = $120</option>
-`;
-}
-
-}
-
-function sendToWhatsApp(){
-
-let name=document.getElementById("name").value.trim();
-let email=document.getElementById("email").value.trim();
-let service=document.getElementById("service").value;
-let budget=document.getElementById("budget").value;
-let details=document.getElementById("details").value.trim();
-let date=document.getElementById("date").value;
+let name = document.getElementById("name").value.trim();
+let email = document.getElementById("email").value.trim();
+let service = document.getElementById("service").value;
+let budget = document.getElementById("budget").value;
+let details = document.getElementById("details").value.trim();
+let date = document.getElementById("date").value;
 
 if(!name || !email || !service || !budget || !details){
-alert("Please fill in all required fields.");
+alert("Please fill all fields.");
 return;
 }
 
-let message=`Hello Dr Beaver 👋
+let orderId = "DB" + Math.floor(1000 + Math.random()*9000);
 
-*NEW PROJECT REQUEST*
+try{
 
-👤 Name: ${name}
-📧 Email: ${email}
-🎯 Service: ${service}
-💰 Package: ${budget}
-📝 Details: ${details}
-📅 Deadline: ${date || "Not specified"}`;
+await addDoc(collection(db,"orders"),{
+orderId,
+name,
+email,
+service,
+budget,
+details,
+deadline: date || "Not specified",
+status: "Pending",
+createdAt: new Date()
+});
 
-let url="https://wa.me/263719194627?text="+encodeURIComponent(message);
+alert("✅ Order Submitted!\nYour ID: " + orderId);
 
-window.open(url,"_blank");
+let msg =
+`Hello Dr Beaver 👋
+
+NEW ORDER
+
+Order ID: ${orderId}
+Name: ${name}
+Service: ${service}
+Budget: ${budget}`;
+
+window.open("https://wa.me/263719194627?text=" + encodeURIComponent(msg));
+
+}catch(err){
+alert("Error submitting order");
+console.log(err);
 }
+
+}
+
 </script>
+
+
 
 </body>
 </html>
