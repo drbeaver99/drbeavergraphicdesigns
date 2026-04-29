@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Order | Dr Beaver</title>
 
+<style>
+body{
+font-family:sans-serif;
+background:#050518;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+input{
+padding:12px;
+width:80%;
+max-width:300px;
+border-radius:10px;
+border:none;
+margin-bottom:15px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#a855f7;
+color:white;
+cursor:pointer;
+}
+
+.result{
+margin-top:30px;
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:15px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Track Your Order</h1>
+
+<input id="orderId" placeholder="Enter Order ID e.g DB1234">
+<br>
+<button onclick="trackOrder()">Track</button>
+
+<div id="result"></div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import {
+getFirestore,
+collection,
+getDocs,
+query,
+where
+} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyBIjF4ZAYgQiEdgA-EID7nD3L1OTrymiZM",
+authDomain: "dr-beaver-graphic-designs.firebaseapp.com",
+projectId: "dr-beaver-graphic-designs",
+storageBucket: "dr-beaver-graphic-designs.firebasestorage.app",
+messagingSenderId: "129079631486",
+appId: "1:129079631486:web:f42119fbd75cfdd9b1022f",
+measurementId: "G-TPE1HQT5XT"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.trackOrder = async function(){
+
+let id = document.getElementById("orderId").value.trim();
+
+if(!id){
+alert("Enter Order ID");
+return;
+}
+
+let q = query(collection(db,"orders"), where("orderId","==",id));
+let snapshot = await getDocs(q);
+
+if(snapshot.empty){
+document.getElementById("result").innerHTML = "❌ Order not found";
+return;
+}
+
+snapshot.forEach(doc => {
+let data = doc.data();
+
+document.getElementById("result").innerHTML = `
+<div class="result">
+<h3>${data.name}</h3>
+<p><strong>Service:</strong> ${data.service}</p>
+<p><strong>Budget:</strong> ${data.budget}</p>
+<p><strong>Status:</strong> ${data.status}</p>
+<p><strong>Deadline:</strong> ${data.deadline}</p>
+</div>
+`;
+});
+
+}
+
+</script>
+
+</body>
+</html>
