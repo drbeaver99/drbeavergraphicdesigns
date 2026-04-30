@@ -2,64 +2,210 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Track Order | Dr Beaver</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Track Order | Dr Beaver Graphic Designs</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-font-family:sans-serif;
+font-family:Arial,sans-serif;
 background:#050518;
+background-image:
+radial-gradient(circle at top left,#1b0935,#050518 40%),
+radial-gradient(circle at bottom right,#3a0b67,#050518 45%);
 color:white;
+min-height:100vh;
+padding:20px;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 0;
 text-align:center;
-padding:40px;
+background:rgba(5,5,25,0.82);
+backdrop-filter:blur(12px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-size:13px;
+font-weight:600;
+opacity:.78;
+transition:.3s;
+}
+
+nav a:hover{
+opacity:1;
+color:#c084fc;
+}
+
+/* MAIN BOX */
+.box{
+max-width:760px;
+margin:120px auto 40px;
+background:rgba(255,255,255,.05);
+padding:35px;
+border-radius:24px;
+backdrop-filter:blur(12px);
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+h1{
+text-align:center;
+color:#c084fc;
+margin-bottom:10px;
+font-size:34px;
+}
+
+.sub{
+text-align:center;
+opacity:.7;
+margin-bottom:30px;
 }
 
 input{
-padding:12px;
-width:80%;
-max-width:300px;
-border-radius:10px;
+width:100%;
+padding:15px;
 border:none;
+border-radius:14px;
+background:rgba(255,255,255,.08);
+color:white;
+font-size:15px;
 margin-bottom:15px;
+outline:none;
 }
 
 button{
-padding:12px 20px;
+width:100%;
+padding:15px;
 border:none;
-border-radius:10px;
-background:#a855f7;
+border-radius:14px;
+background:linear-gradient(45deg,#9333ea,#c084fc);
 color:white;
+font-size:15px;
+font-weight:bold;
 cursor:pointer;
+transition:.3s;
 }
 
-.result{
-margin-top:30px;
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:15px;
+button:hover{
+transform:translateY(-2px);
+opacity:.95;
+}
+
+/* RESULT */
+#result{
+margin-top:25px;
+padding:22px;
+border-radius:18px;
+background:rgba(255,255,255,.04);
+line-height:2;
+display:none;
+}
+
+/* STATUS COLORS */
+.pending{color:#facc15;}
+.designing{color:#60a5fa;}
+.completed{color:#4ade80;}
+.delivered{color:#22c55e;}
+.cancelled{color:#f87171;}
+
+/* PROGRESS */
+.progress{
+margin-top:18px;
+height:10px;
+background:rgba(255,255,255,.08);
+border-radius:30px;
+overflow:hidden;
+}
+
+.bar{
+height:100%;
+width:25%;
+background:#c084fc;
+border-radius:30px;
+transition:.5s;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:25px;
+font-size:12px;
+opacity:.5;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+nav a{
+margin:0 7px;
+font-size:11px;
+}
+
+.box{
+margin:110px auto 30px;
+padding:22px;
+}
+
+h1{
+font-size:28px;
+}
+
 }
 </style>
-
 </head>
 <body>
 
-<h1>Track Your Order</h1>
+<!-- NAVIGATION -->
+<nav>
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="order.html">Order</a>
+<a href="track.html">Track</a>
+<a href="contact.html">Contact</a>
+</nav>
 
-<input id="orderId" placeholder="Enter Order ID e.g DB1234">
-<br>
-<button onclick="trackOrder()">Track</button>
+<!-- CONTENT -->
+<div class="box">
+
+<h1>Track Your Order</h1>
+<p class="sub">Enter your Order ID to check progress</p>
+
+<input type="text" id="trackId" placeholder="Example: DB123456">
+
+<button onclick="trackOrder()">Track Order</button>
 
 <div id="result"></div>
+
+</div>
+
+<footer>
+© 2026 Dr Beaver Graphic Designs
+</footer>
 
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+
 import {
 getFirestore,
 collection,
-getDocs,
-query,
-where
+getDocs
 } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -68,8 +214,7 @@ authDomain: "dr-beaver-graphic-designs.firebaseapp.com",
 projectId: "dr-beaver-graphic-designs",
 storageBucket: "dr-beaver-graphic-designs.firebasestorage.app",
 messagingSenderId: "129079631486",
-appId: "1:129079631486:web:f42119fbd75cfdd9b1022f",
-measurementId: "G-TPE1HQT5XT"
+appId: "1:129079631486:web:f42119fbd75cfdd9b1022f"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -77,34 +222,57 @@ const db = getFirestore(app);
 
 window.trackOrder = async function(){
 
-let id = document.getElementById("orderId").value.trim();
+let id = document.getElementById("trackId").value.trim();
+let result = document.getElementById("result");
 
 if(!id){
-alert("Enter Order ID");
+alert("Please enter Order ID");
 return;
 }
 
-let q = query(collection(db,"orders"), where("orderId","==",id));
-let snapshot = await getDocs(q);
+result.style.display = "block";
+result.innerHTML = "Checking order...";
 
-if(snapshot.empty){
-document.getElementById("result").innerHTML = "❌ Order not found";
-return;
-}
+const querySnapshot = await getDocs(collection(db,"orders"));
 
-snapshot.forEach(doc => {
+let found = false;
+
+querySnapshot.forEach((doc)=>{
+
 let data = doc.data();
 
-document.getElementById("result").innerHTML = `
-<div class="result">
-<h3>${data.name}</h3>
-<p><strong>Service:</strong> ${data.service}</p>
-<p><strong>Budget:</strong> ${data.budget}</p>
-<p><strong>Status:</strong> ${data.status}</p>
-<p><strong>Deadline:</strong> ${data.deadline}</p>
+if(data.orderId === id){
+
+found = true;
+
+let status = (data.status || "Pending").toLowerCase();
+
+let width = "25%";
+
+if(status==="designing") width="50%";
+if(status==="completed") width="75%";
+if(status==="delivered") width="100%";
+if(status==="cancelled") width="100%";
+
+result.innerHTML = `
+<b>Order ID:</b> ${data.orderId}<br>
+<b>Name:</b> ${data.name}<br>
+<b>Service:</b> ${data.service}<br>
+<b>Budget:</b> ${data.budget}<br>
+<b>Status:</b> <span class="${status}">${data.status}</span>
+
+<div class="progress">
+<div class="bar" style="width:${width};"></div>
 </div>
 `;
+
+}
+
 });
+
+if(!found){
+result.innerHTML = "❌ Order not found. Please check your ID.";
+}
 
 }
 
