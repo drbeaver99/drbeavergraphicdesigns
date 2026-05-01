@@ -238,6 +238,131 @@ footer{
         font-size:15px;
     }
 }
+    
+#premiumPopupOverlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.72);
+backdrop-filter:blur(8px);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+padding:20px;
+}
+
+#premiumPopup{
+max-width:480px;
+width:100%;
+background:linear-gradient(145deg,#11142f,#1a1f48);
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:32px;
+color:white;
+box-shadow:0 30px 70px rgba(0,0,0,.45);
+animation:popupIn .45s ease;
+text-align:center;
+}
+
+#premiumPopup h2{
+font-size:30px;
+margin-bottom:12px;
+color:#c084fc;
+}
+
+#premiumPopup p{
+opacity:.78;
+line-height:1.7;
+margin-bottom:18px;
+font-size:15px;
+}
+
+.popupBtns{
+display:grid;
+gap:12px;
+margin-top:15px;
+}
+
+.popupBtns a,
+.popupBtns button{
+padding:15px;
+border:none;
+border-radius:14px;
+text-decoration:none;
+font-weight:700;
+font-size:14px;
+cursor:pointer;
+transition:.3s;
+}
+
+.primaryBtn{
+background:linear-gradient(135deg,#9333ea,#c084fc);
+color:white;
+}
+
+.secondaryBtn{
+background:rgba(255,255,255,.06);
+color:white;
+}
+
+.popupBtns a:hover,
+.popupBtns button:hover{
+transform:translateY(-3px);
+}
+
+#helpFloat{
+position:fixed;
+right:20px;
+bottom:20px;
+width:62px;
+height:62px;
+border:none;
+border-radius:50%;
+background:linear-gradient(135deg,#9333ea,#c084fc);
+color:white;
+font-size:28px;
+cursor:pointer;
+z-index:9999;
+box-shadow:0 15px 35px rgba(168,85,247,.4);
+}
+
+#helpPanel{
+position:fixed;
+right:20px;
+bottom:92px;
+width:320px;
+max-width:92%;
+background:#11142f;
+border-radius:22px;
+padding:22px;
+display:none;
+z-index:9999;
+box-shadow:0 25px 60px rgba(0,0,0,.45);
+}
+
+#helpPanel h3{
+color:#c084fc;
+margin-bottom:12px;
+}
+
+#helpPanel a{
+display:block;
+padding:12px;
+margin-bottom:10px;
+border-radius:12px;
+background:rgba(255,255,255,.05);
+color:white;
+text-decoration:none;
+}
+
+#helpPanel a:hover{
+background:rgba(168,85,247,.18);
+}
+
+@keyframes popupIn{
+from{opacity:0;transform:scale(.9);}
+to{opacity:1;transform:scale(1);}
+}
 </style>
 </head>
 
