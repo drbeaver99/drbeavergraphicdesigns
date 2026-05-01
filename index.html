@@ -272,6 +272,47 @@ footer{
         </a>
 
     </div>
+    <script>
+window.onload = function(){
+
+let title = document.getElementById("popupTitle");
+let text = document.getElementById("popupText");
+
+if(localStorage.getItem("visitedBefore")){
+
+title.innerHTML = "👋 Welcome Back";
+
+text.innerHTML =
+"Ready for another premium project?<br>Track your order or place a new one.";
+
+}else{
+
+localStorage.setItem("visitedBefore","yes");
+
+title.innerHTML = "👋 Welcome";
+
+text.innerHTML =
+"Choose a service, pay deposit, track progress, and receive premium designs.";
+}
+
+}
+
+function closePopup(){
+document.getElementById("premiumPopupOverlay").style.display="none";
+}
+
+function toggleHelp(){
+
+let panel = document.getElementById("helpPanel");
+
+if(panel.style.display==="block"){
+panel.style.display="none";
+}else{
+panel.style.display="block";
+}
+
+}
+    </script>
 </section>
 
 <footer>
