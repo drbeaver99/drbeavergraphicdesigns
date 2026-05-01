@@ -363,6 +363,65 @@ background:rgba(168,85,247,.18);
 from{opacity:0;transform:scale(.9);}
 to{opacity:1;transform:scale(1);}
 }
+    <style>
+.search-wrap{
+display:inline-block;
+margin-left:18px;
+position:relative;
+vertical-align:middle;
+}
+
+#siteSearch{
+width:220px;
+padding:11px 42px 11px 16px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.05);
+color:white;
+outline:none;
+font-size:14px;
+transition:.3s;
+}
+
+#siteSearch:focus{
+width:260px;
+border-color:#c084fc;
+box-shadow:0 0 18px rgba(168,85,247,.22);
+}
+
+#siteSearch::placeholder{
+color:rgba(255,255,255,.55);
+}
+
+.search-btn{
+position:absolute;
+right:6px;
+top:5px;
+width:34px;
+height:34px;
+border:none;
+border-radius:50%;
+cursor:pointer;
+background:linear-gradient(135deg,#9333ea,#c084fc);
+color:white;
+font-size:15px;
+}
+
+@media(max-width:700px){
+.search-wrap{
+display:block;
+margin:12px auto 0;
+}
+#siteSearch{
+width:100%;
+max-width:280px;
+}
+#siteSearch:focus{
+width:100%;
+max-width:280px;
+}
+}
+</style>
 </style>
 </head>
 
@@ -403,6 +462,7 @@ Choose a service, place your order, and track progress easily.
 <a href="track.html">📍 Track Order</a>
 <a href="contact.html">💬 Contact Us</a>
 <a href="https://wa.me/263719194627" target="_blank">📱 WhatsApp</a>
+    
 </div>
 
 <nav>
@@ -412,6 +472,10 @@ Choose a service, place your order, and track progress easily.
     <a href="contact.html">Contact</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="track.html">TrackDesign</a>
+    <div class="search-wrap">
+<input type="text" id="siteSearch" placeholder="Search site...">
+<button class="search-btn" onclick="searchSite()">🔍</button>
+    </div>
 </nav>
 
 <section class="hero">
@@ -474,6 +538,58 @@ panel.style.display="block";
 }
 
 }
+        <script>
+function searchSite(){
+
+let q = document.getElementById("siteSearch").value.toLowerCase().trim();
+
+if(q === ""){
+alert("Type something to search.");
+return;
+}
+
+/* PAGES */
+if(q.includes("home")){
+window.location.href="index.html";
+}
+
+else if(q.includes("service") || q.includes("price")){
+window.location.href="service.html";
+}
+
+else if(q.includes("portfolio") || q.includes("design samples")){
+window.location.href="portfolio.html";
+}
+
+else if(q.includes("order") || q.includes("buy") || q.includes("logo") || q.includes("flyer") || q.includes("website") || q.includes("branding")){
+window.location.href="order.html";
+}
+
+else if(q.includes("track") || q.includes("status") || q.includes("order id")){
+window.location.href="track.html";
+}
+
+else if(q.includes("contact") || q.includes("whatsapp") || q.includes("phone")){
+window.location.href="contact.html";
+}
+
+else{
+alert("No exact result found. Try: logo, website, track, contact.");
+}
+
+}
+
+/* Enter key support */
+document.addEventListener("DOMContentLoaded", function(){
+
+document.getElementById("siteSearch").addEventListener("keypress", function(e){
+if(e.key === "Enter"){
+searchSite();
+}
+});
+
+});
+</script>
     </script>
 </section>
 
