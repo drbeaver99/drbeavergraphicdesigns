@@ -6,293 +6,243 @@
 <title>Dr Beaver Graphic Designs | Premium Visual Solutions</title>
 
 <link rel="icon" href="33092934-ce15-4693-9722-5c513f7d7526.png">
-
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family: 'Inter', sans-serif; /* Premium body font */
-    background: #050518;
-    color: white;
-    overflow-x: hidden;
+font-family:'Inter',sans-serif;
+background:#050518;
+color:white;
+overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    background:rgba(5,5,25,0.7);
-    backdrop-filter:blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    padding:18px 0;
-    text-align:center;
-    z-index:1000;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+position:fixed;
+top:0;
+width:100%;
+padding:18px 12px;
+background:rgba(5,5,25,.72);
+backdrop-filter:blur(15px);
+z-index:1000;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:14px;
+flex-wrap:wrap;
+border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 18px;
-    font-size:13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity:0.7;
-    transition:0.3s;
+color:white;
+text-decoration:none;
+font-size:13px;
+font-weight:600;
+text-transform:uppercase;
+letter-spacing:1px;
+opacity:.75;
+transition:.3s;
 }
 
 nav a:hover{
-    color:#c084fc;
-    opacity:1;
+color:#c084fc;
+opacity:1;
 }
 
-/* HERO WITH MESH GRADIENT */
+/* SEARCH */
+.search-wrap{
+position:relative;
+}
+
+#siteSearch{
+width:210px;
+padding:11px 42px 11px 15px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.05);
+color:white;
+outline:none;
+}
+
+.search-btn{
+position:absolute;
+right:5px;
+top:4px;
+width:34px;
+height:34px;
+border:none;
+border-radius:50%;
+cursor:pointer;
+background:linear-gradient(135deg,#9333ea,#c084fc);
+color:white;
+}
+
+/* HERO */
 .hero{
-    height:100vh;
-    background-color: #050518;
-    /* Premium Mesh Gradient Background */
-    background-image: 
-        radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-        radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-        radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
-    background-attachment: fixed;
-    position:relative;
-    overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 50px;
+position:relative;
+overflow:hidden;
+background:
+radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%),
+radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%),
+radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+background-attachment:fixed;
 }
 
-/* REFINED FLOATING GLOWS */
 .hero::before,
 .hero::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    filter:blur(60px);
-    animation:floatGlow 8s ease-in-out infinite;
-    z-index: 1;
+content:"";
+position:absolute;
+border-radius:50%;
+filter:blur(70px);
+animation:floatGlow 8s ease-in-out infinite;
 }
 
 .hero::before{
-    width:250px;
-    height:250px;
-    background:rgba(168,85,247,0.2);
-    top:10%;
-    left:5%;
+width:240px;
+height:240px;
+background:rgba(168,85,247,.18);
+top:8%;
+left:5%;
 }
 
 .hero::after{
-    width:300px;
-    height:300px;
-    background:rgba(99,102,241,0.15);
-    bottom:5%;
-    right:5%;
-    animation-delay:3s;
+width:280px;
+height:280px;
+background:rgba(99,102,241,.16);
+bottom:8%;
+right:5%;
+animation-delay:3s;
 }
 
-/* CONTENT STAGGERED REVEAL */
 .hero-content{
-    max-width:650px;
-    position:relative;
-    z-index:5;
+max-width:700px;
+position:relative;
+z-index:2;
 }
 
-.hero-content > * {
-    opacity: 0;
-    animation: fadeUp 0.8s ease forwards;
-}
-
-/* Staggered entry timing */
-.logo { animation-delay: 0.2s; }
-h1 { animation-delay: 0.4s; }
-p { animation-delay: 0.6s; }
-.btn-primary { animation-delay: 0.8s; }
-.btn-outline { animation-delay: 1s; }
-
-/* LOGO */
 .logo{
-    width:100px;
-    margin-bottom:25px;
-    animation: floatLogo 4s ease-in-out infinite, fadeUp 0.8s ease forwards 0.2s;
+width:105px;
+margin-bottom:25px;
+animation:floatLogo 4s ease-in-out infinite;
 }
 
-/* TEXT */
-h1 {
-    font-family: 'Syne', sans-serif; /* High-end Heading Font */
-    font-size: clamp(32px, 8vw, 56px); /* Responsive size */
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    line-height: 0.95;
-    margin-bottom: 20px;
-    background: linear-gradient(to bottom, #fff, #c084fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+h1{
+font-family:'Syne',sans-serif;
+font-size:clamp(34px,8vw,58px);
+line-height:.95;
+margin-bottom:18px;
+background:linear-gradient(to bottom,#fff,#c084fc);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero-content p{
-    font-size: 17px;
-    max-width: 500px;
-    margin: 0 auto 35px;
-    opacity: 0.8;
-    line-height: 1.6;
-    letter-spacing: 0.2px;
+max-width:540px;
+margin:0 auto 32px;
+opacity:.82;
+font-size:17px;
+line-height:1.7;
 }
 
-/* BUTTONS */
 .btn{
-    width: 100%;
-    max-width: 280px;
-    padding: 16px;
-    margin: 10px auto;
-    border-radius: 12px; /* Slightly more modern than full round */
-    text-decoration: none;
-    display: block;
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-    overflow: hidden;
+display:block;
+max-width:290px;
+margin:10px auto;
+padding:16px;
+border-radius:14px;
+text-decoration:none;
+font-size:14px;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:1px;
+transition:.35s;
 }
 
-.btn-primary {
-    background: #a855f7;
-    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+.btn-primary{
+background:#a855f7;
+color:white;
+box-shadow:0 10px 30px rgba(168,85,247,.35);
 }
 
-.btn-primary:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(168, 85, 247, 0.5);
-    background: #c084fc;
+.btn-primary:hover{
+transform:translateY(-5px);
+background:#c084fc;
 }
 
 .btn-outline{
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(5px);
+color:white;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
 }
 
 .btn-outline:hover{
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.5);
-    transform: translateY(-5px);
+transform:translateY(-5px);
+background:rgba(255,255,255,.08);
 }
 
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:40px 20px;
-    font-size:12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity:0.4;
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-@keyframes floatLogo{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-15px); }
-}
-
-@keyframes floatGlow{
-    0%,100%{ transform:translate(0, 0); }
-    50%{ transform:translate(-20px, 20px); }
-}
-
-/* MOBILE ADJUSTMENTS */
-@media(max-width:600px){
-    nav a{
-        margin:0 10px;
-        font-size:11px;
-    }
-    .hero-content p{
-        font-size:15px;
-    }
-}
-    
+/* POPUP */
 #premiumPopupOverlay{
 position:fixed;
 inset:0;
 background:rgba(0,0,0,.72);
 backdrop-filter:blur(8px);
-display:flex;
+display:none;
 justify-content:center;
 align-items:center;
-z-index:99999;
 padding:20px;
+z-index:9999;
 }
 
 #premiumPopup{
-max-width:480px;
+max-width:470px;
 width:100%;
+padding:30px;
+border-radius:26px;
 background:linear-gradient(145deg,#11142f,#1a1f48);
-border:1px solid rgba(255,255,255,.08);
-border-radius:28px;
-padding:32px;
-color:white;
-box-shadow:0 30px 70px rgba(0,0,0,.45);
-animation:popupIn .45s ease;
 text-align:center;
 }
 
 #premiumPopup h2{
-font-size:30px;
-margin-bottom:12px;
 color:#c084fc;
+margin-bottom:12px;
+font-size:28px;
 }
 
 #premiumPopup p{
-opacity:.78;
+opacity:.8;
 line-height:1.7;
-margin-bottom:18px;
-font-size:15px;
+margin-bottom:20px;
 }
 
 .popupBtns{
 display:grid;
 gap:12px;
-margin-top:15px;
 }
 
 .popupBtns a,
 .popupBtns button{
-padding:15px;
+padding:14px;
 border:none;
 border-radius:14px;
-text-decoration:none;
-font-weight:700;
-font-size:14px;
 cursor:pointer;
-transition:.3s;
+font-weight:700;
+text-decoration:none;
 }
 
 .primaryBtn{
@@ -305,297 +255,224 @@ background:rgba(255,255,255,.06);
 color:white;
 }
 
-.popupBtns a:hover,
-.popupBtns button:hover{
-transform:translateY(-3px);
-}
-
+/* HELP */
 #helpFloat{
 position:fixed;
-right:20px;
-bottom:20px;
-width:62px;
-height:62px;
+right:18px;
+bottom:18px;
+width:60px;
+height:60px;
 border:none;
 border-radius:50%;
 background:linear-gradient(135deg,#9333ea,#c084fc);
 color:white;
-font-size:28px;
+font-size:26px;
 cursor:pointer;
-z-index:9999;
-box-shadow:0 15px 35px rgba(168,85,247,.4);
+z-index:999;
 }
 
 #helpPanel{
-position:fixed;
-right:20px;
-bottom:92px;
-width:320px;
-max-width:92%;
-background:#11142f;
-border-radius:22px;
-padding:22px;
 display:none;
-z-index:9999;
-box-shadow:0 25px 60px rgba(0,0,0,.45);
+position:fixed;
+right:18px;
+bottom:88px;
+width:300px;
+max-width:92%;
+padding:20px;
+border-radius:22px;
+background:#11142f;
+z-index:999;
 }
 
 #helpPanel h3{
 color:#c084fc;
-margin-bottom:12px;
+margin-bottom:10px;
 }
 
 #helpPanel a{
 display:block;
-padding:12px;
-margin-bottom:10px;
+padding:11px;
+margin:8px 0;
 border-radius:12px;
 background:rgba(255,255,255,.05);
-color:white;
 text-decoration:none;
+color:white;
 }
 
-#helpPanel a:hover{
-background:rgba(168,85,247,.18);
+/* FOOTER */
+footer{
+text-align:center;
+padding:35px 20px;
+font-size:12px;
+opacity:.45;
+text-transform:uppercase;
+letter-spacing:2px;
 }
 
-@keyframes popupIn{
-from{opacity:0;transform:scale(.9);}
-to{opacity:1;transform:scale(1);}
-}
-    <style>
-.search-wrap{
-display:inline-block;
-margin-left:18px;
-position:relative;
-vertical-align:middle;
+/* ANIMATIONS */
+@keyframes floatLogo{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
 }
 
+@keyframes floatGlow{
+0%,100%{transform:translate(0,0);}
+50%{transform:translate(-20px,20px);}
+}
+
+/* MOBILE */
+@media(max-width:700px){
+nav{
+gap:10px;
+}
+nav a{
+font-size:11px;
+}
 #siteSearch{
-width:220px;
-padding:11px 42px 11px 16px;
-border-radius:30px;
-border:1px solid rgba(255,255,255,.08);
-background:rgba(255,255,255,.05);
-color:white;
-outline:none;
-font-size:14px;
-transition:.3s;
+width:180px;
 }
-
-#siteSearch:focus{
-width:260px;
-border-color:#c084fc;
-box-shadow:0 0 18px rgba(168,85,247,.22);
-}
-
-#siteSearch::placeholder{
-color:rgba(255,255,255,.55);
-}
-
-.search-btn{
-position:absolute;
-right:6px;
-top:5px;
-width:34px;
-height:34px;
-border:none;
-border-radius:50%;
-cursor:pointer;
-background:linear-gradient(135deg,#9333ea,#c084fc);
-color:white;
+.hero-content p{
 font-size:15px;
 }
-
-@media(max-width:700px){
-.search-wrap{
-display:block;
-margin:12px auto 0;
 }
-#siteSearch{
-width:100%;
-max-width:280px;
-}
-#siteSearch:focus{
-width:100%;
-max-width:280px;
-}
-}
-</style>
 </style>
 </head>
 
 <body>
-    <!-- PREMIUM POPUP -->
+
+<!-- POPUP -->
 <div id="premiumPopupOverlay">
 <div id="premiumPopup">
 
 <h2 id="popupTitle">👋 Welcome</h2>
 
 <p id="popupText">
-Welcome to Dr Beaver Graphic Designs.<br>
-Choose a service, place your order, and track progress easily.
+Choose a service, place your order and track progress easily.
 </p>
 
 <div class="popupBtns">
-
 <a href="order.html" class="primaryBtn">🚀 Start Order</a>
-
 <a href="portfolio.html" class="secondaryBtn">🎨 View Portfolio</a>
-
 <button onclick="closePopup()" class="secondaryBtn">Close</button>
-
 </div>
 
 </div>
 </div>
 
-<!-- FLOATING HELP -->
+<!-- HELP -->
 <button id="helpFloat" onclick="toggleHelp()">❓</button>
 
 <div id="helpPanel">
 <h3>Need Help?</h3>
-
-<a href="service.html">📦 View Services</a>
+<a href="service.html">📦 Services</a>
 <a href="portfolio.html">🎨 Portfolio</a>
 <a href="order.html">📝 Place Order</a>
 <a href="track.html">📍 Track Order</a>
-<a href="contact.html">💬 Contact Us</a>
+<a href="contact.html">💬 Contact</a>
 <a href="https://wa.me/263719194627" target="_blank">📱 WhatsApp</a>
-    
 </div>
 
+<!-- NAV -->
 <nav>
-    <a href="index.html">Home</a>
-    <a href="service.html">Services</a>
-    <a href="order.html">Order</a>
-    <a href="contact.html">Contact</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="track.html">TrackDesign</a>
-    <div class="search-wrap">
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="order.html">Order</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="track.html">Track</a>
+<a href="contact.html">Contact</a>
+
+<div class="search-wrap">
 <input type="text" id="siteSearch" placeholder="Search site...">
 <button class="search-btn" onclick="searchSite()">🔍</button>
-    </div>
+</div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
+<div class="hero-content">
 
-        <img src="33092934-ce15-4693-9722-5c513f7d7526.png" class="logo" alt="Dr Beaver Logo">
+<img src="33092934-ce15-4693-9722-5c513f7d7526.png" class="logo" alt="Logo">
 
-        <h1>YOUR BRAND,<br>OUR CREATIVITY</h1>
+<h1>YOUR BRAND,<br>OUR CREATIVITY</h1>
 
-        <p>
-            Elevating businesses through bold, modern design and high-end visual storytelling.
-        </p>
+<p>
+Elevating businesses through bold modern design and premium visual storytelling.
+</p>
 
-        <a href="order.html" class="btn btn-primary">🚀 Start a Project</a>
+<a href="order.html" class="btn btn-primary">🚀 Start a Project</a>
 
-        <a href="https://wa.me/263719194627?text=Hi%20Dr%20Beaver,%20I%20need%20a%20design"
-        target="_blank"
-        class="btn btn-outline">
-            💬 Chat on WhatsApp
-        </a>
+<a href="https://wa.me/263719194627?text=Hi%20Dr%20Beaver,%20I%20need%20a%20design"
+target="_blank"
+class="btn btn-outline">
+💬 Chat on WhatsApp
+</a>
 
-    </div>
-    <script>
-window.onload = function(){
-
-let title = document.getElementById("popupTitle");
-let text = document.getElementById("popupText");
-
-if(localStorage.getItem("visitedBefore")){
-
-title.innerHTML = "👋 Welcome Back";
-
-text.innerHTML =
-"Ready for another premium project?<br>Track your order or place a new one.";
-
-}else{
-
-localStorage.setItem("visitedBefore","yes");
-
-title.innerHTML = "👋 Welcome";
-
-text.innerHTML =
-"Choose a service, pay deposit, track progress, and receive premium designs.";
-}
-
-}
-
-function closePopup(){
-document.getElementById("premiumPopupOverlay").style.display="none";
-}
-
-function toggleHelp(){
-
-let panel = document.getElementById("helpPanel");
-
-if(panel.style.display==="block"){
-panel.style.display="none";
-}else{
-panel.style.display="block";
-}
-
-}
-        <script>
-function searchSite(){
-
-let q = document.getElementById("siteSearch").value.toLowerCase().trim();
-
-if(q === ""){
-alert("Type something to search.");
-return;
-}
-
-/* PAGES */
-if(q.includes("home")){
-window.location.href="index.html";
-}
-
-else if(q.includes("service") || q.includes("price")){
-window.location.href="service.html";
-}
-
-else if(q.includes("portfolio") || q.includes("design samples")){
-window.location.href="portfolio.html";
-}
-
-else if(q.includes("order") || q.includes("buy") || q.includes("logo") || q.includes("flyer") || q.includes("website") || q.includes("branding")){
-window.location.href="order.html";
-}
-
-else if(q.includes("track") || q.includes("status") || q.includes("order id")){
-window.location.href="track.html";
-}
-
-else if(q.includes("contact") || q.includes("whatsapp") || q.includes("phone")){
-window.location.href="contact.html";
-}
-
-else{
-alert("No exact result found. Try: logo, website, track, contact.");
-}
-
-}
-
-/* Enter key support */
-document.addEventListener("DOMContentLoaded", function(){
-
-document.getElementById("siteSearch").addEventListener("keypress", function(e){
-if(e.key === "Enter"){
-searchSite();
-}
-});
-
-});
-</script>
-    </script>
+</div>
 </section>
 
 <footer>
-    © 2026 Dr Beaver Graphic Designs
+© 2026 Dr Beaver Graphic Designs
 </footer>
+
+<script>
+/* POPUP every 24 hours */
+window.onload=function(){
+
+let popup=document.getElementById("premiumPopupOverlay");
+let title=document.getElementById("popupTitle");
+let text=document.getElementById("popupText");
+
+let lastSeen=localStorage.getItem("popupSeenTime");
+let now=Date.now();
+let oneDay=86400000;
+
+if(!lastSeen || now-lastSeen>oneDay){
+
+popup.style.display="flex";
+
+if(localStorage.getItem("visitedBefore")){
+title.innerHTML="👋 Welcome Back";
+text.innerHTML="Ready for another premium project?<br>Track your order or place a new one.";
+}else{
+title.innerHTML="👋 Welcome";
+text.innerHTML="Choose a service, pay deposit, track progress and receive premium designs.";
+localStorage.setItem("visitedBefore","yes");
+}
+
+}
+
+}
+
+/* close popup */
+function closePopup(){
+document.getElementById("premiumPopupOverlay").style.display="none";
+localStorage.setItem("popupSeenTime",Date.now());
+}
+
+/* help */
+function toggleHelp(){
+let panel=document.getElementById("helpPanel");
+panel.style.display=panel.style.display==="block" ? "none":"block";
+}
+
+/* search */
+function searchSite(){
+
+let q=document.getElementById("siteSearch").value.toLowerCase().trim();
+
+if(q.includes("home")) location="index.html";
+else if(q.includes("service")||q.includes("price")) location="service.html";
+else if(q.includes("portfolio")) location="portfolio.html";
+else if(q.includes("order")||q.includes("logo")||q.includes("website")||q.includes("flyer")) location="order.html";
+else if(q.includes("track")||q.includes("status")) location="track.html";
+else if(q.includes("contact")||q.includes("phone")||q.includes("whatsapp")) location="contact.html";
+else alert("Try: logo, website, track, contact");
+}
+
+document.getElementById("siteSearch").addEventListener("keypress",function(e){
+if(e.key==="Enter") searchSite();
+});
+</script>
 
 </body>
 </html>
