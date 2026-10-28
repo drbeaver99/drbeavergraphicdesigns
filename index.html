@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr Beaver Graphic Designs | Premium Visual Solutions</title>
+<meta name="description" content="Dr Beaver Graphic Designs creates logos, flyers, websites and branding for businesses. Place your order online and track its progress.">
+<meta name="theme-color" content="#0E2236">
+
+<!-- Link previews (WhatsApp, Facebook). Replace the image with the full web address once the site is live, e.g. https://yourdomain.com/33092934-ce15-4693-9722-5c513f7d7526.png -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dr Beaver Graphic Designs">
+<meta property="og:description" content="Logos, flyers, websites and branding. Order online and track your project.">
+<meta property="og:image" content="33092934-ce15-4693-9722-5c513f7d7526.png">
+
+<link rel="icon" href="33092934-ce15-4693-9722-5c513f7d7526.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== COLOUR SYSTEM =====
+   Change the look of the whole site by editing these values only. */
+:root{
+  --bg:#0E2236;          /* deep ink blue: page background */
+  --bg-nav:#0B1B2C;      /* slightly darker: nav and menus */
+  --surface:#16304A;     /* popup, help panel, inputs */
+  --line:rgba(244,246,248,.14);
+  --text:#F4F6F8;
+  --muted:#AAB8C6;       /* secondary text */
+  --accent:#F5C518;      /* primary buttons: print-process yellow */
+  --accent-hover:#FFD43B;
+  --accent-text:#0E2236; /* text on yellow buttons */
+  --focus:#4CC2EA;       /* keyboard focus ring: process cyan */
+  --radius:8px;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+a,button,input{
+font-family:inherit;
+}
+
+:focus-visible{
+outline:3px solid var(--focus);
+outline-offset:3px;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+padding:14px 16px;
+background:rgba(11,27,44,.92);
+-webkit-backdrop-filter:blur(12px);
+backdrop-filter:blur(12px);
+z-index:1000;
+display:flex;
+justify-content:center;
+align-items:center;
+border-bottom:1px solid var(--line);
+}
+
+.nav-brand,
+.menu-toggle{
+display:none;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.nav-links > a{
+color:var(--muted);
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+letter-spacing:.2px;
+transition:color .2s;
+}
+
+.nav-links > a:hover{
+color:var(--text);
+}
+
+/* SEARCH */
+.search-wrap{
+position:relative;
+}
+
+#siteSearch{
+width:220px;
+padding:10px 44px 10px 14px;
+border-radius:var(--radius);
+border:1px solid var(--line);
+background:var(--surface);
+color:var(--text);
+font-size:14px;
+}
+
+#siteSearch::placeholder{
+color:var(--muted);
+}
+
+.search-btn{
+position:absolute;
+right:4px;
+top:4px;
+width:32px;
+height:32px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+background:var(--accent);
+color:var(--accent-text);
+font-size:14px;
+}
+
+.search-btn:hover{
+background:var(--accent-hover);
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+min-height:100svh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 60px;
+background:var(--bg);
+}
+
+.hero-content{
+max-width:700px;
+animation:rise .7s ease-out both;
+}
+
+.logo{
+width:105px;
+height:auto;
+margin-bottom:28px;
+}
+
+h1{
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:clamp(36px,8vw,64px);
+line-height:1.05;
+letter-spacing:-.5px;
+margin-bottom:18px;
+color:var(--text);
+}
+
+.hero-content p{
+max-width:520px;
+margin:0 auto 32px;
+color:var(--muted);
+font-size:17px;
+line-height:1.7;
+}
+
+.btn{
+display:block;
+max-width:290px;
+margin:10px auto;
+padding:15px 16px;
+border-radius:var(--radius);
+text-decoration:none;
+font-size:15px;
+font-weight:700;
+transition:background .2s,border-color .2s;
+}
+
+.btn-primary{
+background:var(--accent);
+color:var(--accent-text);
+}
+
+.btn-primary:hover{
+background:var(--accent-hover);
+}
+
+.btn-outline{
+color:var(--text);
+background:transparent;
+border:1px solid var(--line);
+}
+
+.btn-outline:hover{
+border-color:var(--text);
+}
+
+/* Print colour bar: cyan, magenta, yellow, black (the one signature detail) */
+.colorbar{
+display:flex;
+justify-content:center;
+gap:6px;
+margin-top:44px;
+}
+
+.colorbar span{
+width:34px;
+height:6px;
+border-radius:2px;
+}
+
+.colorbar span:nth-child(1){background:#1FA9D6;}
+.colorbar span:nth-child(2){background:#D6336C;}
+.colorbar span:nth-child(3){background:#F5C518;}
+.colorbar span:nth-child(4){background:#F4F6F8;}
+
+/* POPUP */
+#premiumPopupOverlay{
+position:fixed;
+inset:0;
+background:rgba(5,12,20,.78);
+-webkit-backdrop-filter:blur(6px);
+backdrop-filter:blur(6px);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:9999;
+}
+
+#premiumPopup{
+max-width:470px;
+width:100%;
+padding:30px;
+border-radius:12px;
+background:var(--surface);
+border:1px solid var(--line);
+text-align:center;
+}
+
+#premiumPopup h2{
+color:var(--text);
+margin-bottom:12px;
+font-family:'Syne',sans-serif;
+font-size:28px;
+}
+
+#premiumPopup p{
+color:var(--muted);
+line-height:1.7;
+margin-bottom:22px;
+}
+
+.popupBtns{
+display:grid;
+gap:12px;
+}
+
+.popupBtns a,
+.popupBtns button{
+padding:14px;
+border:none;
+border-radius:var(--radius);
+cursor:pointer;
+font-size:15px;
+font-weight:700;
+text-decoration:none;
+transition:background .2s;
+}
+
+.primaryBtn{
+background:var(--accent);
+color:var(--accent-text);
+}
+
+.primaryBtn:hover{
+background:var(--accent-hover);
+}
+
+.secondaryBtn{
+background:rgba(244,246,248,.08);
+color:var(--text);
+}
+
+.secondaryBtn:hover{
+background:rgba(244,246,248,.14);
+}
+
+/* HELP */
+#helpFloat{
+position:fixed;
+right:18px;
+bottom:18px;
+width:56px;
+height:56px;
+border:none;
+border-radius:50%;
+background:var(--accent);
+color:var(--accent-text);
+font-size:24px;
+cursor:pointer;
+z-index:999;
+box-shadow:0 4px 14px rgba(0,0,0,.35);
+}
+
+#helpFloat:hover{
+background:var(--accent-hover);
+}
+
+#helpPanel{
+display:none;
+position:fixed;
+right:18px;
+bottom:84px;
+width:300px;
+max-width:calc(100% - 36px);
+padding:20px;
+border-radius:12px;
+background:var(--surface);
+border:1px solid var(--line);
+z-index:999;
+}
+
+#helpPanel h3{
+font-family:'Syne',sans-serif;
+color:var(--text);
+margin-bottom:10px;
+}
+
+#helpPanel a{
+display:block;
+padding:11px 12px;
+margin:8px 0;
+border-radius:var(--radius);
+background:rgba(244,246,248,.06);
+text-decoration:none;
+color:var(--text);
+font-size:15px;
+}
+
+#helpPanel a:hover{
+background:rgba(244,246,248,.12);
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:35px 20px;
+font-size:13px;
+color:var(--muted);
+}
+
+/* ANIMATION (one page-load reveal only) */
+@keyframes rise{
+from{opacity:0;transform:translateY(14px);}
+to{opacity:1;transform:none;}
+}
+
+@media (prefers-reduced-motion:reduce){
+*,
+*::before,
+*::after{
+animation:none !important;
+transition:none !important;
+scroll-behavior:auto !important;
+}
+}
+
+/* MOBILE */
+@media(max-width:760px){
+nav{
+justify-content:space-between;
+}
+
+.nav-brand{
+display:block;
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:17px;
+color:var(--text);
+text-decoration:none;
+}
+
+.menu-toggle{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:42px;
+height:42px;
+border:1px solid var(--line);
+border-radius:var(--radius);
+background:transparent;
+color:var(--text);
+font-size:20px;
+cursor:pointer;
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+right:0;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+padding:6px 16px 18px;
+background:var(--bg-nav);
+border-bottom:1px solid var(--line);
+}
+
+.nav-links.open{
+display:flex;
+}
+
+.nav-links > a{
+padding:14px 0;
+font-size:16px;
+border-bottom:1px solid var(--line);
+}
+
+.search-wrap{
+margin-top:14px;
+}
+
+#siteSearch{
+width:100%;
+font-size:16px; /* stops iPhone zooming into the field */
+}
+
+.hero-content p{
+font-size:16px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- POPUP -->
+<div id="premiumPopupOverlay">
+<div id="premiumPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+
+<h2 id="popupTitle">👋 Welcome</h2>
+
+<p id="popupText">
+Choose a service, place your order and track progress easily.
+</p>
+
+<div class="popupBtns">
+<a href="order.html" class="primaryBtn">🚀 Start Order</a>
+<a href="portfolio.html" class="secondaryBtn">🎨 View Portfolio</a>
+<button type="button" id="popupClose" class="secondaryBtn">Close</button>
+</div>
+
+</div>
+</div>
+
+<!-- HELP -->
+<button type="button" id="helpFloat" aria-label="Help" aria-expanded="false" aria-controls="helpPanel">❓</button>
+
+<div id="helpPanel">
+<h3>Need Help?</h3>
+<a href="service.html">📦 Services</a>
+<a href="portfolio.html">🎨 Portfolio</a>
+<a href="order.html">📝 Place Order</a>
+<a href="track.html">📍 Track Order</a>
+<a href="contact.html">💬 Contact</a>
+<a href="https://wa.me/263719194627" target="_blank" rel="noopener noreferrer">📱 WhatsApp</a>
+</div>
+
+<!-- NAV -->
+<nav aria-label="Main">
+<a href="index.html" class="nav-brand">Dr Beaver</a>
+<button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="order.html">Order</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="track.html">Track</a>
+<a href="contact.html">Contact</a>
+
+<div class="search-wrap">
+<input type="text" id="siteSearch" placeholder="Search site..." aria-label="Search site">
+<button type="button" class="search-btn" id="searchBtn" aria-label="Search">🔍</button>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<main>
+<section class="hero">
+<div class="hero-content">
+
+<img src="33092934-ce15-4693-9722-5c513f7d7526.png" class="logo" alt="Dr Beaver Graphic Designs logo" width="105" height="105">
+
+<h1>Your brand,<br>our creativity</h1>
+
+<p>
+Elevating businesses through bold modern design and premium visual storytelling.
+</p>
+
+<a href="order.html" class="btn btn-primary">🚀 Start a project</a>
+
+<a href="https://wa.me/263719194627?text=Hi%20Dr%20Beaver,%20I%20need%20a%20design"
+target="_blank"
+rel="noopener noreferrer"
+class="btn btn-outline">
+💬 Chat on WhatsApp
+</a>
+
+<div class="colorbar" aria-hidden="true">
+<span></span><span></span><span></span><span></span>
+</div>
+
+</div>
+</section>
+</main>
+
+<footer>
+© 2026 Dr Beaver Graphic Designs
+</footer>
+
+<script>
+/* ---------- POPUP: shows once every 24 hours ---------- */
+const overlay = document.getElementById("premiumPopupOverlay");
+
+function closePopup(){
+  overlay.style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  const title = document.getElementById("popupTitle");
+  const text = document.getElementById("popupText");
+  const ONE_DAY = 86400000;
+
+  try {
+    const lastSeen = Number(localStorage.getItem("popupSeenTime")) || 0;
+
+    if (Date.now() - lastSeen > ONE_DAY) {
+      const returning = localStorage.getItem("visitedBefore");
+
+      if (returning) {
+        title.textContent = "👋 Welcome Back";
+        text.innerHTML = "Ready for another premium project?<br>Track your order or place a new one.";
+      } else {
+        title.textContent = "👋 Welcome";
+        text.textContent = "Choose a service, pay deposit, track progress and receive premium designs.";
+      }
+
+      overlay.style.display = "flex";
+      document.getElementById("popupClose").focus();
+
+      /* saved as soon as it opens, so it does not repeat on every page */
+      localStorage.setItem("visitedBefore", "yes");
+      localStorage.setItem("popupSeenTime", String(Date.now()));
+    }
+  } catch (e) {
+    /* storage blocked (some private modes): skip the popup */
+  }
+});
+
+document.getElementById("popupClose").addEventListener("click", closePopup);
+
+overlay.addEventListener("click", function(e){
+  if (e.target === overlay) closePopup();
+});
+
+/* ---------- HELP PANEL ---------- */
+const helpBtn = document.getElementById("helpFloat");
+const helpPanel = document.getElementById("helpPanel");
+
+function setHelp(open){
+  helpPanel.style.display = open ? "block" : "none";
+  helpBtn.setAttribute("aria-expanded", String(open));
+}
+
+helpBtn.addEventListener("click", function(){
+  setHelp(helpPanel.style.display !== "block");
+});
+
+document.addEventListener("click", function(e){
+  if (!helpPanel.contains(e.target) && !helpBtn.contains(e.target)) setHelp(false);
+});
+
+/* ---------- MOBILE MENU ---------- */
+const menuBtn = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+function setMenu(open){
+  navLinks.classList.toggle("open", open);
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuBtn.textContent = open ? "✕" : "☰";
+}
+
+menuBtn.addEventListener("click", function(){
+  setMenu(!navLinks.classList.contains("open"));
+});
+
+/* ---------- ESCAPE closes popup, help and menu ---------- */
+document.addEventListener("keydown", function(e){
+  if (e.key === "Escape") {
+    closePopup();
+    setHelp(false);
+    setMenu(false);
+  }
+});
+
+/* ---------- SEARCH ----------
+   The first match wins, so more specific pages come first.
+   To add a page, add a line: [["keyword", "keyword"], "page.html"] */
+const SEARCH_MAP = [
+  [["track", "status", "progress"], "track.html"],
+  [["contact", "phone", "whatsapp", "email"], "contact.html"],
+  [["portfolio", "work", "samples"], "portfolio.html"],
+  [["order", "logo", "website", "flyer", "poster", "buy"], "order.html"],
+  [["service", "price", "pricing", "cost"], "service.html"],
+  [["home"], "index.html"]
+];
+
+function searchSite(){
+  const q = document.getElementById("siteSearch").value.toLowerCase().trim();
+  if (!q) return;
+
+  for (const [keywords, page] of SEARCH_MAP) {
+    if (keywords.some(function(k){ return q.includes(k); })) {
+      window.location.href = page;
+      return;
+    }
+  }
+  alert("Try: logo, website, track, contact");
+}
+
+document.getElementById("searchBtn").addEventListener("click", searchSite);
+
+document.getElementById("siteSearch").addEventListener("keydown", function(e){
+  if (e.key === "Enter") searchSite();
+});
+</script>
+
+</body>
+</html>
