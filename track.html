@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Order | Dr Beaver Graphic Designs</title>
+<meta name="description" content="Enter your tracking ID to see the progress of your Dr Beaver Graphic Designs order.">
+<meta name="theme-color" content="#0E2236">
+
+<link rel="icon" href="33092934-ce15-4693-9722-5c513f7d7526.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== COLOUR SYSTEM (same as the other pages) ===== */
+:root{
+  --bg:#0E2236;
+  --bg-nav:#0B1B2C;
+  --surface:#16304A;
+  --field:#0E2236;
+  --line:rgba(244,246,248,.14);
+  --text:#F4F6F8;
+  --muted:#AAB8C6;
+  --accent:#F5C518;
+  --accent-hover:#FFD43B;
+  --accent-text:#0E2236;
+  --focus:#4CC2EA;
+  --error:#FF8A80;
+  --done:#6EE7A8;
+  --radius:8px;
+  color-scheme:dark;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+background:var(--bg);
+color:var(--text);
+min-height:100vh;
+overflow-x:hidden;
+}
+
+button,input{
+font-family:inherit;
+}
+
+:focus-visible{
+outline:3px solid var(--focus);
+outline-offset:3px;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+padding:14px 16px;
+background:rgba(11,27,44,.92);
+-webkit-backdrop-filter:blur(12px);
+backdrop-filter:blur(12px);
+z-index:1000;
+display:flex;
+justify-content:center;
+align-items:center;
+border-bottom:1px solid var(--line);
+}
+
+.nav-brand,
+.menu-toggle{
+display:none;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:var(--muted);
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+letter-spacing:.2px;
+transition:color .2s;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"]{
+color:var(--text);
+}
+
+.nav-links a[aria-current="page"]{
+text-decoration:underline;
+text-decoration-color:var(--accent);
+text-decoration-thickness:2px;
+text-underline-offset:6px;
+}
+
+/* MAIN BOX */
+.box{
+max-width:700px;
+margin:120px auto 40px;
+background:var(--surface);
+border:1px solid var(--line);
+padding:38px;
+border-radius:12px;
+}
+
+h1{
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:clamp(30px,6vw,42px);
+line-height:1.1;
+letter-spacing:-.3px;
+margin-bottom:10px;
+}
+
+.sub{
+color:var(--muted);
+line-height:1.6;
+margin-bottom:28px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-size:14px;
+font-weight:600;
+}
+
+.search-row{
+display:flex;
+gap:12px;
+}
+
+input{
+flex:1;
+min-width:0;
+padding:14px;
+border-radius:var(--radius);
+border:1px solid var(--line);
+background:var(--field);
+color:var(--text);
+font-size:16px;
+letter-spacing:1px;
+text-transform:uppercase;
+transition:border-color .2s;
+}
+
+input::placeholder{
+color:var(--muted);
+opacity:.8;
+text-transform:none;
+letter-spacing:0;
+}
+
+input:focus{
+outline:none;
+border-color:var(--focus);
+box-shadow:0 0 0 3px rgba(76,194,234,.25);
+}
+
+button.go{
+padding:14px 26px;
+border:none;
+border-radius:var(--radius);
+background:var(--accent);
+color:var(--accent-text);
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:background .2s;
+white-space:nowrap;
+}
+
+button.go:hover{
+background:var(--accent-hover);
+}
+
+button.go:disabled{
+opacity:.6;
+cursor:wait;
+}
+
+/* RESULT */
+#result{
+margin-top:26px;
+}
+
+.message{
+padding:14px 16px;
+border-radius:var(--radius);
+border:1px solid var(--line);
+color:var(--muted);
+line-height:1.6;
+}
+
+.message.error{
+border-color:var(--error);
+color:var(--error);
+}
+
+.summary{
+border:1px solid var(--line);
+border-radius:var(--radius);
+overflow:hidden;
+}
+
+.summary dl{
+display:grid;
+grid-template-columns:auto 1fr;
+}
+
+.summary dt,
+.summary dd{
+padding:12px 16px;
+border-bottom:1px solid var(--line);
+}
+
+.summary dt{
+color:var(--muted);
+font-size:14px;
+}
+
+.summary dd{
+font-weight:600;
+text-align:right;
+overflow-wrap:anywhere;
+}
+
+.summary dt:nth-last-child(2),
+.summary dd:last-child{
+border-bottom:none;
+}
+
+/* PROGRESS STEPS */
+.steps{
+list-style:none;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+margin-top:24px;
+}
+
+.steps li{
+position:relative;
+padding-top:18px;
+font-size:13px;
+font-weight:600;
+color:var(--muted);
+text-align:center;
+}
+
+.steps li::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:6px;
+border-radius:3px;
+background:var(--line);
+}
+
+.steps li.done{
+color:var(--text);
+}
+
+.steps li.done::before{
+background:var(--done);
+}
+
+.steps li.current{
+color:var(--accent);
+}
+
+.steps li.current::before{
+background:var(--accent);
+}
+
+.status-note{
+margin-top:16px;
+text-align:center;
+font-size:15px;
+color:var(--muted);
+line-height:1.6;
+}
+
+.cancelled-note{
+margin-top:20px;
+padding:14px 16px;
+border-radius:var(--radius);
+border:1px solid var(--error);
+color:var(--error);
+line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:30px 20px;
+font-size:13px;
+color:var(--muted);
+}
+
+@media (prefers-reduced-motion:reduce){
+*,
+*::before,
+*::after{
+animation:none !important;
+transition:none !important;
+}
+}
+
+/* MOBILE */
+@media(max-width:760px){
+nav{
+justify-content:space-between;
+}
+
+.nav-brand{
+display:block;
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:17px;
+color:var(--text);
+text-decoration:none;
+}
+
+.menu-toggle{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:42px;
+height:42px;
+border:1px solid var(--line);
+border-radius:var(--radius);
+background:transparent;
+color:var(--text);
+font-size:20px;
+cursor:pointer;
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+right:0;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+padding:6px 16px 12px;
+background:var(--bg-nav);
+border-bottom:1px solid var(--line);
+}
+
+.nav-links.open{
+display:flex;
+}
+
+.nav-links a{
+padding:14px 0;
+font-size:16px;
+border-bottom:1px solid var(--line);
+}
+
+.nav-links a:last-child{
+border-bottom:none;
+}
+
+.box{
+margin:95px 14px 30px;
+padding:26px 18px;
+}
+
+.search-row{
+flex-direction:column;
+}
+
+.steps{
+gap:4px;
+}
+
+.steps li{
+font-size:12px;
+}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+<a href="index.html" class="nav-brand">Dr Beaver</a>
+<button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="order.html">Order</a>
+<a href="track.html" aria-current="page">Track</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<main class="box">
+
+<h1>Track your order</h1>
+<p class="sub">Enter the tracking ID you received when you placed your order.</p>
+
+<form id="trackForm">
+<label for="trackId">Tracking ID</label>
+<div class="search-row">
+<input type="text" id="trackId" placeholder="Example: DBK7M2QX4P" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="20" required>
+<button type="submit" class="go" id="goBtn">Track order</button>
+</div>
+</form>
+
+<div id="result" aria-live="polite"></div>
+
+</main>
+
+<footer>
+© 2026 Dr Beaver Graphic Designs
+</footer>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+
+import {
+getFirestore,
+doc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyBIjF4ZAYgQiEdgA-EID7nD3L1OTrymiZM",
+authDomain: "dr-beaver-graphic-designs.firebaseapp.com",
+projectId: "dr-beaver-graphic-designs",
+storageBucket: "dr-beaver-graphic-designs.firebasestorage.app",
+messagingSenderId: "129079631486",
+appId: "1:129079631486:web:f42119fbd75cfdd9b1022f"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const STEPS = [
+  { name: "Pending",   note: "We’ve received your order and will start soon." },
+  { name: "Designing", note: "Your design is in progress." },
+  { name: "Completed", note: "Your design is ready. We’ll be in touch about delivery." },
+  { name: "Delivered", note: "Your order has been delivered. Thank you!" }
+];
+
+const form = document.getElementById("trackForm");
+const input = document.getElementById("trackId");
+const result = document.getElementById("result");
+const goBtn = document.getElementById("goBtn");
+
+function show(node){
+  result.replaceChildren(node);
+}
+
+function message(text, isError){
+  const p = document.createElement("p");
+  p.className = "message" + (isError ? " error" : "");
+  p.textContent = text;
+  return p;
+}
+
+function row(dl, label, value){
+  const dt = document.createElement("dt");
+  dt.textContent = label;
+  const dd = document.createElement("dd");
+  dd.textContent = value;
+  dl.append(dt, dd);
+}
+
+function render(data){
+  const wrap = document.createElement("div");
+
+  const summary = document.createElement("div");
+  summary.className = "summary";
+  const dl = document.createElement("dl");
+
+  row(dl, "Order ID", data.orderId || "");
+  row(dl, "Service", data.service || "");
+  row(dl, "Package", data.budget || "");
+
+  if (data.createdAt && typeof data.createdAt.toDate === "function") {
+    row(dl, "Placed on", data.createdAt.toDate().toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }));
+  }
+
+  row(dl, "Status", data.status || "Pending");
+  summary.appendChild(dl);
+  wrap.appendChild(summary);
+
+  const status = String(data.status || "Pending").toLowerCase();
+
+  if (status === "cancelled") {
+    const c = document.createElement("p");
+    c.className = "cancelled-note";
+    c.textContent = "This order was cancelled. If you think this is a mistake, please contact us.";
+    wrap.appendChild(c);
+  } else {
+    let index = STEPS.findIndex(function(s){ return s.name.toLowerCase() === status; });
+    if (index < 0) index = 0;
+
+    const ol = document.createElement("ol");
+    ol.className = "steps";
+
+    STEPS.forEach(function(step, i){
+      const li = document.createElement("li");
+      li.textContent = step.name;
+      if (i < index) li.className = "done";
+      if (i === index) {
+        li.className = "current";
+        li.setAttribute("aria-current", "step");
+      }
+      ol.appendChild(li);
+    });
+
+    wrap.appendChild(ol);
+
+    const note = document.createElement("p");
+    note.className = "status-note";
+    note.textContent = STEPS[index].note;
+    wrap.appendChild(note);
+  }
+
+  show(wrap);
+}
+
+async function track(rawId){
+  const id = rawId.trim().toUpperCase().replace(/\s+/g, "");
+
+  /* Order IDs are letters and digits only; this also blocks "/" which Firestore rejects */
+  if (!/^[A-Z0-9]{6,20}$/.test(id)) {
+    show(message("That doesn’t look like a valid tracking ID. Please check it and try again.", true));
+    return;
+  }
+
+  goBtn.disabled = true;
+  show(message("Checking order..."));
+
+  try {
+    /* Reads ONE order by its ID. It never downloads other customers' orders. */
+    const snap = await getDoc(doc(db, "orders", id));
+
+    if (snap.exists()) {
+      render(snap.data());
+    } else {
+      show(message("Order not found. Please check your ID.", true));
+    }
+  } catch (err) {
+    console.error(err);
+    show(message("We couldn’t check your order right now. Please try again, or message us on WhatsApp.", true));
+  } finally {
+    goBtn.disabled = false;
+  }
+}
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  track(input.value);
+});
+
+/* Link from the order confirmation: track.html?id=DBXXXXXXXX */
+const preset = new URLSearchParams(window.location.search).get("id");
+if (preset) {
+  input.value = preset;
+  track(preset);
+}
+
+/* Mobile menu */
+const menuBtn = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+function setMenu(open){
+  navLinks.classList.toggle("open", open);
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuBtn.textContent = open ? "✕" : "☰";
+}
+
+menuBtn.addEventListener("click", function(){
+  setMenu(!navLinks.classList.contains("open"));
+});
+
+document.addEventListener("keydown", function(e){
+  if (e.key === "Escape") setMenu(false);
+});
+
+</script>
+
+</body>
+</html>
