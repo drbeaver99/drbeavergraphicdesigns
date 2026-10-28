@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Dr Beaver Graphic Designs</title>
+<meta name="description" content="Logo design, flyers and posters, business cards, websites and social media content from Dr Beaver Graphic Designs.">
+<meta name="theme-color" content="#0E2236">
+
+<link rel="icon" href="33092934-ce15-4693-9722-5c513f7d7526.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== COLOUR SYSTEM (same as the other pages) ===== */
+:root{
+  --bg:#0E2236;
+  --bg-nav:#0B1B2C;
+  --surface:#16304A;
+  --field:#0E2236;
+  --line:rgba(244,246,248,.14);
+  --text:#F4F6F8;
+  --muted:#AAB8C6;
+  --accent:#F5C518;
+  --accent-hover:#FFD43B;
+  --accent-text:#0E2236;
+  --focus:#4CC2EA;
+  --radius:8px;
+  color-scheme:dark;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+button{
+font-family:inherit;
+}
+
+:focus-visible{
+outline:3px solid var(--focus);
+outline-offset:3px;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+padding:14px 16px;
+background:rgba(11,27,44,.92);
+-webkit-backdrop-filter:blur(12px);
+backdrop-filter:blur(12px);
+z-index:1000;
+display:flex;
+justify-content:center;
+align-items:center;
+border-bottom:1px solid var(--line);
+}
+
+.nav-brand,
+.menu-toggle{
+display:none;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:var(--muted);
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+letter-spacing:.2px;
+transition:color .2s;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"]{
+color:var(--text);
+}
+
+.nav-links a[aria-current="page"]{
+text-decoration:underline;
+text-decoration-color:var(--accent);
+text-decoration-thickness:2px;
+text-underline-offset:6px;
+}
+
+/* PAGE */
+.container{
+max-width:1100px;
+margin:130px auto 60px;
+padding:20px;
+text-align:center;
+}
+
+h1{
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:clamp(34px,7vw,56px);
+line-height:1.05;
+letter-spacing:-.5px;
+margin-bottom:12px;
+}
+
+.subtitle{
+color:var(--muted);
+margin:0 auto 56px;
+max-width:520px;
+font-size:18px;
+line-height:1.6;
+}
+
+/* GRID */
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+gap:22px;
+}
+
+.card-link{
+display:block;
+text-decoration:none;
+color:inherit;
+border-radius:12px;
+}
+
+.card{
+position:relative;
+height:100%;
+padding:32px 28px;
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:12px;
+text-align:left;
+transition:border-color .2s,background .2s;
+}
+
+.card-link:hover .card{
+border-color:var(--accent);
+background:#1A3753;
+}
+
+.icon{
+width:56px;
+height:56px;
+margin-bottom:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+border-radius:var(--radius);
+background:var(--field);
+border:1px solid var(--line);
+}
+
+.card h3{
+font-family:'Syne',sans-serif;
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+font-size:15px;
+color:var(--muted);
+line-height:1.6;
+margin-bottom:24px;
+}
+
+.price{
+font-weight:700;
+color:var(--accent);
+font-size:20px;
+}
+
+.price small{
+font-size:13px;
+font-weight:600;
+color:var(--muted);
+margin-right:4px;
+}
+
+.badge{
+position:absolute;
+top:20px;
+right:20px;
+background:var(--accent);
+color:var(--accent-text);
+padding:5px 12px;
+border-radius:6px;
+font-size:12px;
+font-weight:700;
+}
+
+/* CTA */
+.cta{
+margin-top:64px;
+}
+
+.btn-primary{
+display:inline-block;
+padding:16px 40px;
+border-radius:var(--radius);
+background:var(--accent);
+color:var(--accent-text);
+text-decoration:none;
+font-size:16px;
+font-weight:700;
+transition:background .2s;
+}
+
+.btn-primary:hover{
+background:var(--accent-hover);
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:50px 20px;
+font-size:13px;
+color:var(--muted);
+}
+
+@media (prefers-reduced-motion:reduce){
+*,
+*::before,
+*::after{
+animation:none !important;
+transition:none !important;
+}
+}
+
+/* MOBILE */
+@media(max-width:760px){
+nav{
+justify-content:space-between;
+}
+
+.nav-brand{
+display:block;
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:17px;
+color:var(--text);
+text-decoration:none;
+}
+
+.menu-toggle{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:42px;
+height:42px;
+border:1px solid var(--line);
+border-radius:var(--radius);
+background:transparent;
+color:var(--text);
+font-size:20px;
+cursor:pointer;
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+right:0;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+padding:6px 16px 12px;
+background:var(--bg-nav);
+border-bottom:1px solid var(--line);
+}
+
+.nav-links.open{
+display:flex;
+}
+
+.nav-links a{
+padding:14px 0;
+font-size:16px;
+border-bottom:1px solid var(--line);
+text-align:left;
+}
+
+.nav-links a:last-child{
+border-bottom:none;
+}
+
+.container{
+margin:100px 12px 40px;
+padding:16px 8px;
+}
+
+.subtitle{
+font-size:16px;
+margin-bottom:40px;
+}
+
+.card{
+padding:28px 22px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav aria-label="Main">
+<a href="index.html" class="nav-brand">Dr Beaver</a>
+<button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="service.html" aria-current="page">Services</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="order.html">Order</a>
+<a href="track.html">Track</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<main class="container">
+
+<h1>Our services</h1>
+<p class="subtitle">Creative solutions that elevate your brand 🚀</p>
+
+<div class="services-grid">
+
+<a href="order.html" class="card-link">
+<div class="card">
+<span class="badge">Popular</span>
+<div class="icon" aria-hidden="true">🎨</div>
+<h3>Logo Design</h3>
+<p>Unique and professional logos that represent your brand identity perfectly.</p>
+<div class="price"><small>From</small>$10</div>
+</div>
+</a>
+
+<a href="order.html" class="card-link">
+<div class="card">
+<div class="icon" aria-hidden="true">📄</div>
+<h3>Flyers &amp; Posters</h3>
+<p>Eye-catching designs that boost your marketing and event reach instantly.</p>
+<div class="price"><small>From</small>$10</div>
+</div>
+</a>
+
+<a href="order.html" class="card-link">
+<div class="card">
+<div class="icon" aria-hidden="true">💼</div>
+<h3>Business Cards</h3>
+<p>Professional stationery that leaves a strong, lasting impression on every client.</p>
+<div class="price">$10</div>
+</div>
+</a>
+
+<a href="order.html" class="card-link">
+<div class="card">
+<div class="icon" aria-hidden="true">🌐</div>
+<h3>Website Design</h3>
+<p>Modern, responsive, and high-performing websites tailored for your business.</p>
+<div class="price"><small>From</small>$80</div>
+</div>
+</a>
+
+<a href="order.html" class="card-link">
+<div class="card">
+<div class="icon" aria-hidden="true">📱</div>
+<h3>Social Media</h3>
+<p>Grow your brand with consistent and engaging creative content daily.</p>
+<div class="price"><small>From</small>$15</div>
+</div>
+</a>
+
+</div>
+
+<div class="cta">
+<a href="order.html" class="btn-primary">🚀 Start your project</a>
+</div>
+
+</main>
+
+<footer>
+© 2026 Dr Beaver Graphic Designs
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+function setMenu(open){
+  navLinks.classList.toggle("open", open);
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuBtn.textContent = open ? "✕" : "☰";
+}
+
+menuBtn.addEventListener("click", function(){
+  setMenu(!navLinks.classList.contains("open"));
+});
+
+document.addEventListener("keydown", function(e){
+  if (e.key === "Escape") setMenu(false);
+});
+</script>
+
+</body>
+</html>
