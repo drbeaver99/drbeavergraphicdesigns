@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Dr Beaver Graphic Designs</title>
+<meta name="description" content="Selected logo, flyer and branding work and website projects by Dr Beaver Graphic Designs.">
+<meta name="theme-color" content="#0E2236">
+
+<link rel="icon" href="33092934-ce15-4693-9722-5c513f7d7526.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== COLOUR SYSTEM (same as the other pages) ===== */
+:root{
+  --bg:#0E2236;
+  --bg-nav:#0B1B2C;
+  --surface:#16304A;
+  --field:#0E2236;
+  --line:rgba(244,246,248,.14);
+  --text:#F4F6F8;
+  --muted:#AAB8C6;
+  --accent:#F5C518;
+  --accent-hover:#FFD43B;
+  --accent-text:#0E2236;
+  --focus:#4CC2EA;
+  --radius:8px;
+  color-scheme:dark;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+button{
+font-family:inherit;
+}
+
+:focus-visible{
+outline:3px solid var(--focus);
+outline-offset:3px;
+}
+
+.sr-only{
+position:absolute;
+width:1px;
+height:1px;
+overflow:hidden;
+clip:rect(0,0,0,0);
+white-space:nowrap;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+padding:14px 16px;
+background:rgba(11,27,44,.92);
+-webkit-backdrop-filter:blur(12px);
+backdrop-filter:blur(12px);
+z-index:1000;
+display:flex;
+justify-content:center;
+align-items:center;
+border-bottom:1px solid var(--line);
+}
+
+.nav-brand,
+.menu-toggle{
+display:none;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:var(--muted);
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+letter-spacing:.2px;
+transition:color .2s;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"]{
+color:var(--text);
+}
+
+.nav-links a[aria-current="page"]{
+text-decoration:underline;
+text-decoration-color:var(--accent);
+text-decoration-thickness:2px;
+text-underline-offset:6px;
+}
+
+/* PAGE */
+.container{
+max-width:1100px;
+margin:130px auto 60px;
+padding:20px;
+}
+
+h1{
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:clamp(34px,7vw,56px);
+line-height:1.05;
+letter-spacing:-.5px;
+text-align:center;
+margin-bottom:12px;
+}
+
+.subtitle{
+text-align:center;
+color:var(--muted);
+margin:0 auto 64px;
+max-width:520px;
+font-size:18px;
+line-height:1.6;
+}
+
+h2{
+font-family:'Syne',sans-serif;
+font-size:24px;
+margin-bottom:26px;
+padding-bottom:14px;
+border-bottom:1px solid var(--line);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:24px;
+margin-bottom:72px;
+align-items:start;
+}
+
+/* DESIGN IMAGES */
+.work img{
+display:block;
+width:100%;
+height:auto;
+border-radius:12px;
+border:1px solid var(--line);
+background:var(--surface);
+padding:8px;
+transition:border-color .2s;
+}
+
+.work img:hover{
+border-color:var(--accent);
+}
+
+/* WEBSITE CARDS */
+.website-card{
+background:var(--surface);
+border:1px solid var(--line);
+padding:28px;
+border-radius:12px;
+text-align:left;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+gap:8px;
+transition:border-color .2s;
+}
+
+.website-card:hover{
+border-color:var(--accent);
+}
+
+.website-card h3{
+font-family:'Syne',sans-serif;
+font-size:21px;
+margin-bottom:10px;
+}
+
+.website-card p{
+font-size:15px;
+color:var(--muted);
+line-height:1.6;
+margin-bottom:22px;
+}
+
+/* BUTTON */
+.btn{
+display:block;
+padding:13px 22px;
+border-radius:var(--radius);
+background:var(--accent);
+color:var(--accent-text);
+text-decoration:none;
+font-size:15px;
+font-weight:700;
+text-align:center;
+transition:background .2s;
+}
+
+.btn:hover{
+background:var(--accent-hover);
+}
+
+.btn-soon{
+display:block;
+padding:13px 22px;
+border-radius:var(--radius);
+border:1px dashed var(--line);
+color:var(--muted);
+font-size:15px;
+font-weight:600;
+text-align:center;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:50px 20px;
+font-size:13px;
+color:var(--muted);
+}
+
+@media (prefers-reduced-motion:reduce){
+*,
+*::before,
+*::after{
+animation:none !important;
+transition:none !important;
+}
+}
+
+/* MOBILE */
+@media(max-width:760px){
+nav{
+justify-content:space-between;
+}
+
+.nav-brand{
+display:block;
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:17px;
+color:var(--text);
+text-decoration:none;
+}
+
+.menu-toggle{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:42px;
+height:42px;
+border:1px solid var(--line);
+border-radius:var(--radius);
+background:transparent;
+color:var(--text);
+font-size:20px;
+cursor:pointer;
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+right:0;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+padding:6px 16px 12px;
+background:var(--bg-nav);
+border-bottom:1px solid var(--line);
+}
+
+.nav-links.open{
+display:flex;
+}
+
+.nav-links a{
+padding:14px 0;
+font-size:16px;
+border-bottom:1px solid var(--line);
+}
+
+.nav-links a:last-child{
+border-bottom:none;
+}
+
+.container{
+margin:100px auto 40px;
+padding:15px;
+}
+
+.grid{
+gap:18px;
+margin-bottom:56px;
+}
+
+.subtitle{
+font-size:16px;
+margin-bottom:44px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav aria-label="Main">
+<a href="index.html" class="nav-brand">Dr Beaver</a>
+<button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="portfolio.html" aria-current="page">Portfolio</a>
+<a href="order.html">Order</a>
+<a href="track.html">Track</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<main class="container">
+
+<h1>Our portfolio</h1>
+<p class="subtitle">Showcasing creative excellence and digital innovation 🚀</p>
+
+<!-- DESIGN PROJECTS -->
+<section>
+
+<h2>🎨 Design projects</h2>
+
+<!-- Replace each alt text with what the design is, e.g. "Logo for Green Valley Farm" -->
+<div class="grid work">
+
+<img src="1cb0d448-824b-43e5-a5ed-8d05f795d756.png" alt="Design project 1" loading="lazy" decoding="async">
+
+<img src="0cfc003b-19be-4da4-ba67-54e66756d0d0.png" alt="Design project 2" loading="lazy" decoding="async">
+
+<img src="3306afce-e17f-400a-98b8-742b51453373.png" alt="Design project 3" loading="lazy" decoding="async">
+
+<img src="33092934-ce15-4693-9722-5c513f7d7526.png" alt="Dr Beaver Graphic Designs logo" loading="lazy" decoding="async">
+
+</div>
+
+</section>
+
+<!-- WEBSITE PROJECTS -->
+<section>
+
+<h2>🌐 Website projects</h2>
+
+<div class="grid">
+
+<div class="website-card">
+<div>
+<h3>JrElectradrive</h3>
+<p>A high-performance business platform for a modern automotive brand.</p>
+</div>
+<a href="https://drbeaver99.github.io/Jrelectradriveauto-/index.html" target="_blank" rel="noopener noreferrer" class="btn">View live site<span class="sr-only"> (opens in a new tab)</span></a>
+</div>
+
+<!-- The next two have no link yet. When a project is live, swap the span for:
+     <a href="https://..." target="_blank" rel="noopener noreferrer" class="btn">View live site</a> -->
+<div class="website-card">
+<div>
+<h3>Creative Studio</h3>
+<p>Minimalist personal portfolio designed for maximum visual impact.</p>
+</div>
+<span class="btn-soon">Coming soon</span>
+</div>
+
+<div class="website-card">
+<div>
+<h3>Luxe E-commerce</h3>
+<p>Sleek user interface design for a premium online shopping experience.</p>
+</div>
+<span class="btn-soon">Coming soon</span>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>
+© 2026 Dr Beaver Graphic Designs
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+function setMenu(open){
+  navLinks.classList.toggle("open", open);
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuBtn.textContent = open ? "✕" : "☰";
+}
+
+menuBtn.addEventListener("click", function(){
+  setMenu(!navLinks.classList.contains("open"));
+});
+
+document.addEventListener("keydown", function(e){
+  if (e.key === "Escape") setMenu(false);
+});
+</script>
+
+</body>
+</html>
