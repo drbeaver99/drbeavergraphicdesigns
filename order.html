@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order | Dr Beaver Graphic Designs</title>
+<meta name="description" content="Order a logo, flyer, poster, social media graphics or a website from Dr Beaver Graphic Designs and get a tracking ID.">
+<meta name="theme-color" content="#0E2236">
+
+<link rel="icon" href="33092934-ce15-4693-9722-5c513f7d7526.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== COLOUR SYSTEM (same as the home page) ===== */
+:root{
+  --bg:#0E2236;
+  --bg-nav:#0B1B2C;
+  --surface:#16304A;
+  --field:#0E2236;
+  --line:rgba(244,246,248,.14);
+  --text:#F4F6F8;
+  --muted:#AAB8C6;
+  --accent:#F5C518;
+  --accent-hover:#FFD43B;
+  --accent-text:#0E2236;
+  --focus:#4CC2EA;
+  --error:#FF8A80;
+  --radius:8px;
+  color-scheme:dark;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+background:var(--bg);
+color:var(--text);
+min-height:100vh;
+overflow-x:hidden;
+}
+
+button,input,select,textarea{
+font-family:inherit;
+}
+
+:focus-visible{
+outline:3px solid var(--focus);
+outline-offset:3px;
+}
+
+/* NAV */
+nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+padding:14px 16px;
+background:rgba(11,27,44,.92);
+-webkit-backdrop-filter:blur(12px);
+backdrop-filter:blur(12px);
+z-index:1000;
+display:flex;
+justify-content:center;
+align-items:center;
+border-bottom:1px solid var(--line);
+}
+
+.nav-brand,
+.menu-toggle{
+display:none;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:22px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:var(--muted);
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+letter-spacing:.2px;
+transition:color .2s;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"]{
+color:var(--text);
+}
+
+.nav-links a[aria-current="page"]{
+text-decoration:underline;
+text-decoration-color:var(--accent);
+text-decoration-thickness:2px;
+text-underline-offset:6px;
+}
+
+/* FORM CARD */
+.container{
+max-width:780px;
+margin:115px auto 45px;
+padding:40px;
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:12px;
+}
+
+h1{
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:clamp(30px,6vw,44px);
+line-height:1.1;
+letter-spacing:-.3px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:var(--muted);
+line-height:1.6;
+margin-bottom:32px;
+}
+
+.row{
+display:flex;
+gap:18px;
+}
+
+.form-group{
+flex:1;
+margin-bottom:22px;
+min-width:0;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-size:14px;
+font-weight:600;
+}
+
+.optional{
+color:var(--muted);
+font-weight:400;
+}
+
+input,select,textarea{
+width:100%;
+padding:14px;
+border-radius:var(--radius);
+border:1px solid var(--line);
+background:var(--field);
+color:var(--text);
+font-size:16px;
+transition:border-color .2s;
+}
+
+input::placeholder,
+textarea::placeholder{
+color:var(--muted);
+opacity:.8;
+}
+
+textarea{
+min-height:140px;
+resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+outline:none;
+border-color:var(--focus);
+box-shadow:0 0 0 3px rgba(76,194,234,.25);
+}
+
+.price-box{
+margin-top:10px;
+padding:12px 14px;
+border-radius:var(--radius);
+background:rgba(244,246,248,.05);
+border-left:3px solid var(--accent);
+font-size:14px;
+color:var(--muted);
+line-height:1.5;
+}
+
+.price-box strong{
+color:var(--text);
+}
+
+.submit-btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:var(--radius);
+margin-top:8px;
+background:var(--accent);
+color:var(--accent-text);
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:background .2s;
+}
+
+.submit-btn:hover{
+background:var(--accent-hover);
+}
+
+.submit-btn:disabled{
+opacity:.6;
+cursor:wait;
+}
+
+.form-error{
+display:none;
+margin-top:14px;
+padding:12px 14px;
+border-radius:var(--radius);
+border:1px solid var(--error);
+color:var(--error);
+font-size:14px;
+line-height:1.5;
+}
+
+.note{
+margin-top:18px;
+text-align:center;
+font-size:14px;
+color:var(--muted);
+}
+
+/* SUCCESS POPUP */
+#popup{
+position:fixed;
+inset:0;
+background:rgba(5,12,20,.78);
+-webkit-backdrop-filter:blur(6px);
+backdrop-filter:blur(6px);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
+}
+
+.popup-box{
+max-width:440px;
+width:100%;
+background:var(--surface);
+border:1px solid var(--line);
+padding:30px;
+border-radius:12px;
+text-align:center;
+}
+
+.popup-box h2{
+font-family:'Syne',sans-serif;
+margin-bottom:12px;
+}
+
+.popup-box p{
+color:var(--muted);
+line-height:1.7;
+margin-bottom:6px;
+}
+
+.order-id{
+display:inline-block;
+margin:8px 0 14px;
+padding:10px 18px;
+border-radius:var(--radius);
+background:var(--field);
+border:1px solid var(--line);
+font-size:24px;
+font-weight:700;
+letter-spacing:2px;
+color:var(--accent);
+user-select:all;
+}
+
+.popup-actions{
+display:grid;
+gap:12px;
+margin-top:18px;
+}
+
+.popup-actions a,
+.popup-actions button{
+display:block;
+padding:14px;
+border:none;
+border-radius:var(--radius);
+font-size:15px;
+font-weight:700;
+text-decoration:none;
+cursor:pointer;
+transition:background .2s;
+}
+
+.popup-primary{
+background:var(--accent);
+color:var(--accent-text);
+}
+
+.popup-primary:hover{
+background:var(--accent-hover);
+}
+
+.popup-secondary{
+background:rgba(244,246,248,.08);
+color:var(--text);
+}
+
+.popup-secondary:hover{
+background:rgba(244,246,248,.14);
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:35px 20px;
+font-size:13px;
+color:var(--muted);
+}
+
+@media (prefers-reduced-motion:reduce){
+*,
+*::before,
+*::after{
+animation:none !important;
+transition:none !important;
+}
+}
+
+/* MOBILE */
+@media(max-width:760px){
+nav{
+justify-content:space-between;
+}
+
+.nav-brand{
+display:block;
+font-family:'Syne',sans-serif;
+font-weight:800;
+font-size:17px;
+color:var(--text);
+text-decoration:none;
+}
+
+.menu-toggle{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:42px;
+height:42px;
+border:1px solid var(--line);
+border-radius:var(--radius);
+background:transparent;
+color:var(--text);
+font-size:20px;
+cursor:pointer;
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+right:0;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+padding:6px 16px 12px;
+background:var(--bg-nav);
+border-bottom:1px solid var(--line);
+}
+
+.nav-links.open{
+display:flex;
+}
+
+.nav-links a{
+padding:14px 0;
+font-size:16px;
+border-bottom:1px solid var(--line);
+}
+
+.nav-links a:last-child{
+border-bottom:none;
+}
+
+.row{
+flex-direction:column;
+gap:0;
+}
+
+.container{
+margin:95px 14px 40px;
+padding:26px 18px;
+}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+<a href="index.html" class="nav-brand">Dr Beaver</a>
+<button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="service.html">Services</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="order.html" aria-current="page">Order</a>
+<a href="track.html">Track</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<main class="container">
+
+<h1>Start your project</h1>
+<p class="subtitle">Tell us what you need and we’ll bring it to life.</p>
+
+<form id="orderForm">
+
+<div class="row">
+<div class="form-group">
+<label for="name">Full name</label>
+<input type="text" id="name" placeholder="John Doe" autocomplete="name" required>
+</div>
+
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" placeholder="example@email.com" autocomplete="email" required>
+</div>
+</div>
+
+<div class="row">
+<div class="form-group">
+<label for="service">Service</label>
+<select id="service" required>
+<option value="">Choose service</option>
+<option>🎨 Logo Design</option>
+<option>📄 Flyer Design</option>
+<option>🖼 Poster Design</option>
+<option>🎨 Social Media Graphics</option>
+<option>📱 Social Media Management</option>
+<option>🌐 Website Design</option>
+<option>🔥 Combo Package</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="budget">Package</label>
+<select id="budget" required>
+<option value="">Select package</option>
+</select>
+
+<div class="price-box" id="priceBox" aria-live="polite">
+Choose a service to view packages.
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<label for="details">Project details</label>
+<textarea id="details" placeholder="Describe your vision..." required></textarea>
+</div>
+
+<div class="form-group">
+<label for="date">Preferred deadline <span class="optional">(optional)</span></label>
+<input type="date" id="date">
+</div>
+
+<button type="submit" class="submit-btn" id="submitBtn">🚀 Submit order</button>
+
+<div class="form-error" id="formError" role="alert"></div>
+
+<p class="note">You will receive an automatic tracking ID.</p>
+
+</form>
+
+</main>
+
+<footer>© 2026 Dr Beaver Graphic Designs</footer>
+
+<!-- SUCCESS POPUP -->
+<div id="popup">
+<div class="popup-box" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+<h2 id="popupTitle">Order submitted</h2>
+<p>Your tracking ID is</p>
+<div class="order-id" id="orderIdText"></div>
+<p>Save it. You will need it on the Track page.</p>
+
+<div class="popup-actions">
+<a href="#" id="waLink" target="_blank" rel="noopener noreferrer" class="popup-primary">💬 Send details on WhatsApp</a>
+<button type="button" id="popupClose" class="popup-secondary">Close</button>
+</div>
+</div>
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+
+import {
+getFirestore,
+doc,
+setDoc,
+serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyBIjF4ZAYgQiEdgA-EID7nD3L1OTrymiZM",
+authDomain: "dr-beaver-graphic-designs.firebaseapp.com",
+projectId: "dr-beaver-graphic-designs",
+storageBucket: "dr-beaver-graphic-designs.firebasestorage.app",
+messagingSenderId: "129079631486",
+appId: "1:129079631486:web:f42119fbd75cfdd9b1022f"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+/* ---------- Packages (edit prices here) ---------- */
+const PACKAGES = {
+  "🌐 Website Design": [
+    "Starter Website - $80",
+    "Business Website - $120",
+    "Premium Website - $150"
+  ],
+  "📱 Social Media Management": [
+    "Starter Growth - $50",
+    "Business Boost - $80",
+    "Premium Brand - $100"
+  ],
+  "🎨 Social Media Graphics": [
+    "Starter Pack (2 posts/week) - $15",
+    "5 Posts Per Week - $25",
+    "1 Month Premium - $50"
+  ],
+  "🔥 Combo Package": [
+    "Logo + Flyer - $20",
+    "Logo + Poster - $25",
+    "Logo + Branding Kit - $35",
+    "Logo + Flyer + Poster - $40"
+  ],
+  "🎨 Logo Design": [
+    "Basic Logo - $10",
+    "Premium Logo - $20",
+    "Luxury Logo - $30"
+  ],
+  "📄 Flyer Design": [
+    "Single Flyer - $10",
+    "Premium Flyer - $18"
+  ],
+  "🖼 Poster Design": [
+    "Poster Design - $15",
+    "Premium Poster - $25"
+  ]
+};
+
+const form = document.getElementById("orderForm");
+const serviceEl = document.getElementById("service");
+const budgetEl = document.getElementById("budget");
+const priceBox = document.getElementById("priceBox");
+const submitBtn = document.getElementById("submitBtn");
+const errorBox = document.getElementById("formError");
+const popup = document.getElementById("popup");
+
+/* Deadline can't be in the past */
+const today = new Date();
+today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+document.getElementById("date").min = today.toISOString().split("T")[0];
+
+/* ---------- Package list ---------- */
+serviceEl.addEventListener("change", function(){
+  budgetEl.innerHTML = '<option value="">Select package</option>';
+
+  const list = PACKAGES[serviceEl.value] || [];
+  list.forEach(function(item){
+    const opt = document.createElement("option");
+    opt.value = item;
+    opt.textContent = item;
+    budgetEl.appendChild(opt);
+  });
+
+  priceBox.textContent = list.length ? "Select a package." : "Choose a service to view packages.";
+});
+
+budgetEl.addEventListener("change", function(){
+  if (budgetEl.value) {
+    priceBox.innerHTML = "Selected: <strong></strong>";
+    priceBox.querySelector("strong").textContent = budgetEl.value;
+  } else {
+    priceBox.textContent = "Select a package.";
+  }
+});
+
+/* ---------- Tracking ID ----------
+   Random (not time based), so two orders can never overwrite each other
+   and IDs can't be guessed from the time of the order.
+   Letters and digits that are easy to read out over a phone call. */
+function makeOrderId(){
+  const chars = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  const bytes = new Uint8Array(8);
+  crypto.getRandomValues(bytes);
+  let id = "DB";
+  bytes.forEach(function(b){ id += chars[b % chars.length]; });
+  return id;
+}
+
+function showError(message){
+  errorBox.textContent = message;
+  errorBox.style.display = "block";
+}
+
+/* ---------- Submit ---------- */
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+  errorBox.style.display = "none";
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const service = serviceEl.value;
+  const budget = budgetEl.value;
+  const details = document.getElementById("details").value.trim();
+  const date = document.getElementById("date").value;
+
+  if (!name || !email || !service || !budget || !details) {
+    showError("Please fill in all required fields.");
+    return;
+  }
+
+  const orderId = makeOrderId();
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Sending...";
+
+  try {
+    await setDoc(doc(db, "orders", orderId), {
+      orderId: orderId,
+      name: name,
+      email: email,
+      service: service,
+      budget: budget,
+      details: details,
+      deadline: date || "Not specified",
+      status: "Pending",
+      createdAt: serverTimestamp()
+    });
+  } catch (err) {
+    console.error(err);
+    showError("We couldn't save your order. Check your internet connection and try again, or message us on WhatsApp.");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "🚀 Submit order";
+    return;
+  }
+
+  /* WhatsApp message goes behind a button, because browsers block
+     windows opened automatically after a delay, especially on phones. */
+  const msg =
+`Hello Dr Beaver 👋
+
+*NEW ORDER REQUEST*
+
+🆔 Order ID: ${orderId}
+👤 Name: ${name}
+📧 Email: ${email}
+🛠 Service: ${service}
+💰 Package: ${budget}
+📝 Details: ${details}
+📅 Deadline: ${date || "Not specified"}`;
+
+  document.getElementById("waLink").href =
+    "https://wa.me/263719194627?text=" + encodeURIComponent(msg);
+  document.getElementById("orderIdText").textContent = orderId;
+
+  popup.style.display = "flex";
+  document.getElementById("waLink").focus();
+
+  form.reset();
+  budgetEl.innerHTML = '<option value="">Select package</option>';
+  priceBox.textContent = "Choose a service to view packages.";
+  submitBtn.disabled = false;
+  submitBtn.textContent = "🚀 Submit order";
+});
+
+/* ---------- Popup ---------- */
+function closePopup(){
+  popup.style.display = "none";
+}
+
+document.getElementById("popupClose").addEventListener("click", closePopup);
+
+popup.addEventListener("click", function(e){
+  if (e.target === popup) closePopup();
+});
+
+/* ---------- Mobile menu ---------- */
+const menuBtn = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+function setMenu(open){
+  navLinks.classList.toggle("open", open);
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuBtn.textContent = open ? "✕" : "☰";
+}
+
+menuBtn.addEventListener("click", function(){
+  setMenu(!navLinks.classList.contains("open"));
+});
+
+document.addEventListener("keydown", function(e){
+  if (e.key === "Escape") {
+    closePopup();
+    setMenu(false);
+  }
+});
+
+</script>
+
+</body>
+</html>
